@@ -1,4 +1,4 @@
-import { Button, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import ActionButton from "../../../components/ActionButton";
 
@@ -14,10 +14,16 @@ export default function Main({ navigation }) {
     }
 
     return (
-        <View>
+        <View style={styles.home}>
             <ActionButton text={s.buttonLessons} action={() => navTo(routes.lessons)} />
             <ActionButton text={s.buttonStatistics} action={() => navTo(routes.statistics)} />
             <ActionButton text={s.buttonLocations} action={() => navTo(routes.locations)} />
         </View>
     );
 }
+
+const styles =StyleSheet.create({
+    home: {
+        backgroundColor: "#2277FF"
+    }
+})

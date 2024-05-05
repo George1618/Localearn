@@ -32,21 +32,18 @@ export default function Home({ navigation }) {
                 <Pressable onPress={navToMain}><Text>{strings.appName}</Text></Pressable>
                 <View>
                     <Pressable onPress={navToProfile}>
-                        <Image source={''} />
                         <Text>{''}</Text>
                     </Pressable>
                 </View>
             </View>
             
-            <NavigationContainer>
-                <HomeStack.Navigator>
-                    <HomeStack.Screen name={routes.main} component={Main} />
-                    <HomeStack.Screen name={routes.profile} component={Profile} />
-                    <HomeStack.Screen name={routes.lessons} component={Lessons} />
-                    <HomeStack.Screen name={routes.statistics} component={Statistics} />
-                    <HomeStack.Screen name={routes.locations} component={Locations} />
-                </HomeStack.Navigator>
-            </NavigationContainer>
+            <HomeStack.Navigator>
+                <HomeStack.Screen name={routes.main} component={Main} />
+                <HomeStack.Screen name={routes.profile} component={Profile} />
+                <HomeStack.Screen name={routes.lessons} component={Lessons} />
+                <HomeStack.Screen name={routes.statistics} component={Statistics} />
+                <HomeStack.Screen name={routes.locations} component={Locations} />
+            </HomeStack.Navigator>
         </View>
     );
 }
@@ -54,6 +51,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
     home: {
         width: '100%',
-        heigh: '100%'
+        heigh: '100%',
+        backgroundColor: "#000"
     }
 })

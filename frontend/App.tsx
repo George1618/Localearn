@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {StatusBar} from 'react-native';
-
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -15,6 +13,9 @@ const { routes } = strings;
 // Pilha de navegação para o App principal.
 const Stack = createNativeStackNavigator();
 
+// TODO: Adicionar lógica de entrada no app: 
+// verificar conta, e se não houver conta já logada, mandar para login
+
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
@@ -22,7 +23,6 @@ function App(): React.JSX.Element {
         <Stack.Screen name={routes.home} component={Home} />
         <Stack.Screen name={routes.login} component={Login} />
         <Stack.Screen name={routes.signup} component={Signup} />
-        <StatusBar translucent={false} />
       </Stack.Navigator>
     </NavigationContainer>
   );
