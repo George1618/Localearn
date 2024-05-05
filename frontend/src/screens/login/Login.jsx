@@ -1,41 +1,48 @@
 import { useState } from "react";
 import { StyleSheet, Button, Pressable, Text, TextInput, View } from "react-native";
 
+import LNI from "../../components/LabeledNameInput";
+import LPI from "../../components/LabeledPasswordInput";
+import ActionButton from "../../components/ActionButton";
+
+import strings from "../../assets/strings";
+
+const s = strings.login;
+
 export default function Login({ navigation }) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     function login() {
-        /* autenticar usando os states: username e password */
+        // autenticar usando os states username e password 
+        // Se der certo:
+        navigation.navigate(strings.routes.home);
     }
 
     function navToSignup() {
-        navigation.navigate('Signup');
+        navigation.navigate(strings.routes.login);
     }
 
     return (<View>
-        <Text>Usuário</Text>
-        <TextInput 
-            textContentType={'username'} 
-            id="username"
-            defaultValue={username}
-            onChangeText={value => setUsername(value)} />
-        <Text>Senha</Text>
-        <TextInput 
-            secureTextEntry={true} 
-            textContentType={'newPassword'} 
-            id="password"
-            defaultValue={password}
-            onChangeText={value => setPassword(value)} />
+        <LNI
+            label={s.labelUser}
+            value={username}
+            onEdit={setUsername} />
+        <LPI
+            label={s.labelPassword}
+            isNew={false}
+            value={password}
+            onEdit={setPassword} />
+        
         <Text>
-            Não tem conta? 
+            { s.textSignupLine }
             <Pressable onPress={navToSignup}>
-                <Text style={styles.toSignup}>Cadastre-se</Text>
+                <Text style={styles.toSignup}>{s.textSignup}</Text>
             </Pressable>
         </Text>
         
-        <Button onPress={login}>Login</Button>
+        <ActionButton text={s.buttonLogin} action={login} />
     </View>);
 }
 

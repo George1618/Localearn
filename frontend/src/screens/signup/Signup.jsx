@@ -1,6 +1,14 @@
 import { useState } from "react";
-import { Button, Text, TextInput, View } from "react-native";
+import { Text, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
+
+import LNI from "../../components/LabeledNameInput";
+import LPI from "../../components/LabeledPasswordInput";
+import ActionButton from "../../components/ActionButton";
+
+import strings from "../../assets/strings";
+
+const s = strings.signup;
 
 export default function Signup({ navigation }) {
 
@@ -11,36 +19,32 @@ export default function Signup({ navigation }) {
 
     function signup() {
         /* cadastrar usuário com os states: username, password, isTeacher */
-        // após sucesso:
-        navigation.navigate('Login')
+        // após sucesso, ir para tela de login
+        navigation.navigate(strings.routes.login);
     }
 
-    return (<View id="signup">
-        <Text>Nome de usuário</Text>
-        <TextInput 
-            textContentType={'username'} 
-            id="username"
-            defaultValue={username}
-            onChangeText={value => setUsername(value)} />
-        <Text>Senha</Text>
-        <TextInput 
-            secureTextEntry={true} 
-            textContentType={'newPassword'} 
-            id="password"
-            defaultValue={password}
-            onChangeText={value => setPassword(value)} />
-        <Text>Confirmar senha</Text>
-        <TextInput 
-            secureTextEntry={true} 
-            textContentType={'password'} 
-            id="confirmPassword"
-            defaultValue={confirmPassword}
-            onChangeText={value => setConfirmPassword(value)} />
-        <Text>Sou:</Text>
+    return (<View>
+        <LNI 
+            label={s.labelUsername}
+            value={username}
+            onEdit={setUsername} />
+        <LPI
+            label={s.labelPassword}
+            isNew={false}
+            value={password}
+            onEdit={setPassword} />
+        <LPI
+            label={s.labelConfirmPassword}
+            isNew={true}
+            value={confirmPassword}
+            onEdit={setConfirmPassword} />
+
+        <Text>{s.pickerLabel}</Text>
         <Picker selectedValue={isTeacher} onValueChange={value => setIsTeacher(value)}>
-            <Picker.Item label="Aluno" value={false} />
-            <Picker.Item label="Professor" value={true}/>
+            <Picker.Item label={s.pickerStudent} value={false} />
+            <Picker.Item label={s.pickerTeacher} value={true}/>
         </Picker>
-        <Button onPress={signup}>Cadastrar</Button>
+
+        <ActionButton text={s.buttonSignup} action={signup} />
     </View>);
 }
