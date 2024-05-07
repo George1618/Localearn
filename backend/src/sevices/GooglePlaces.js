@@ -2,6 +2,7 @@
 
 const googleMaps = require('@google/maps');
 const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
+const { haversineDistance } = require('./Haversine');
 
 class GooglePlaces {
     constructor(){
@@ -11,7 +12,7 @@ class GooglePlaces {
     }
 
     async initMap() {
-        const position = { lat: -3.767272774392214, lng: -38.53435395329283 };
+        const position = { lat: -3.768817543630748, lng: -38.53449104164236 };
 
         const request = {
             location: position,
@@ -31,6 +32,12 @@ class GooglePlaces {
     
             let response = await placesPromise;
             let places = response.json.results;
+
+            places.sort((a, b) => {
+                const distanceA = haversineDistance(position.lat, position.lng, a.geometry.location.lat, a.geometry.location.lng);
+                const distanceB = haversineDistance(position.lat, position.lng, b.geometry.location.lat, b.geometry.location.lng);
+                return distanceA - distanceB;
+            });
     
             for (let i in places){
                 for (let j in places[i].types){
