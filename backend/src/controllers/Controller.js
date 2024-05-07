@@ -5,7 +5,12 @@ class Controller{
     }
 
     async init() {
-        this.googlePlaces.initMap();
+        try {
+            let resultado = await this.googlePlaces.initMap();
+            console.log(resultado); // Aqui você pode lidar com o resultado retornado pela função initMap()
+        } catch (error) {
+            console.error('Erro:', error);
+        }
         /*try {
             const localizacaoAtual = await this.pegarLocalizacao();
             console.log(localizacaoAtual);
