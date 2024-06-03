@@ -1,0 +1,44 @@
+[
+    {
+        "pergunta": "Can I have the menu, please?",
+        "local": "restaurant",
+        "resposta": "Pode me dar o menu, por favor?",
+        "nivel": 1
+    },
+    {
+        "pergunta": "I would like to order",
+        "local": "restaurant",
+        "resposta": "Eu gostaria de pedir",
+        "nivel": 1
+    },
+    {
+        "pergunta": "A cup of tea, please",
+        "local": "restaurant",
+        "resposta": "Um copo de chá, por favor",
+        "nivel": 1
+    },
+    {
+        "pergunta": "You need a reservation sir",
+        "local": "restaurant",
+        "resposta": "Você precisa de uma reserva senhor",
+        "nivel": 1
+    },
+    {
+        "pergunta": "A table for two",
+        "local": "restaurant",
+        "resposta": "Uma mesa para dois",
+        "nivel": 1
+    },
+    {
+        "pergunta": "What is the next period?",
+        "local": "school",
+        "resposta": "Qual é a próxima aula?",
+        "nivel": 1
+    },
+    {
+        "pergunta": "I'm in the fifth grade",
+        "local": "school",
+        "resposta": "Eu estou no quinto ano",
+        "nivel": 1
+    }
+]

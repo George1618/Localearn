@@ -11,8 +11,8 @@ class GooglePlaces {
         });
     }
 
-    async initMap() {
-        const position = { lat: -3.768817543630748, lng: -38.53449104164236 };
+    async initMap(latitude, longitude) {
+        const position = { lat: latitude, lng: longitude };
 
         const request = {
             location: position,
