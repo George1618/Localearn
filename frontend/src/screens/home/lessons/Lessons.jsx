@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import LessonCard from "../../../components/LessonCard";
 import LessonDialog from "./LessonDialog";
@@ -21,14 +21,14 @@ export default function Lessons() {
         const dateInterval = setInterval(() => setDate(new Date()), 1000);
 
         return function cleanup() {
-            cleanInterval(dateInterval);
+            clearInterval(dateInterval);
         }
     }, [lessonCount])
 
     return (
         <View>
-            <Text>{s.headerLessons}</Text>
-            <Text>{date.toLocaleDateString()}</Text>
+            <Text style={styles.text}>{s.headerLessons}</Text>
+            <Text style={styles.text}>{date.toLocaleDateString()}</Text>
             {lesson.id ? 
                 <LessonDialog /> 
                 : 
@@ -36,3 +36,9 @@ export default function Lessons() {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    text: {
+        color: '#000'
+    }
+})

@@ -7,6 +7,8 @@ import LPI from "../../components/LabeledPasswordInput";
 import ActionButton from "../../components/ActionButton";
 
 import strings from "../../assets/strings";
+import StyledText from "../../components/StyledText";
+import colors from "../../assets/colors";
 
 const s = strings.signup;
 
@@ -39,8 +41,9 @@ export default function Signup({ navigation }) {
             value={confirmPassword}
             onEdit={setConfirmPassword} />
 
-        <Text>{s.pickerLabel}</Text>
-        <Picker selectedValue={isTeacher} onValueChange={value => setIsTeacher(value)}>
+        <StyledText text={s.pickerLabel}/>
+        <Picker selectedValue={isTeacher} onValueChange={value => setIsTeacher(value)} 
+            style={{color: colors.black}}>
             <Picker.Item label={s.pickerStudent} value={false} />
             <Picker.Item label={s.pickerTeacher} value={true}/>
         </Picker>

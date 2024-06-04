@@ -1,4 +1,5 @@
 import { Button, StyleSheet } from "react-native";
+import colors from "../assets/colors";
 
 export default function ActionButton({text, action}) {
     return (
@@ -8,9 +9,7 @@ export default function ActionButton({text, action}) {
 
 const style = StyleSheet.create({
     button: {
-        width: "80%",
-        height: "50px",
-        backgroundColor: '#F03030',
-        color: "#000000"
+        backgroundColor: colors.neutral2,
+        color: colors.black
     }
 }).button;

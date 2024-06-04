@@ -1,6 +1,5 @@
 import {StyleSheet, View, Text, Pressable, Image} from 'react-native';
 
-import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Main from './main/Main';
@@ -10,6 +9,8 @@ import Statistics from './statistics/Statistics';
 import Locations from './locations/Locations';
 
 import strings from '../../assets/strings';
+import colors from '../../assets/colors';
+import StyledText from '../../components/StyledText';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -29,15 +30,15 @@ export default function Home({ navigation }) {
     return (
         <View style={styles.home}>
             <View>
-                <Pressable onPress={navToMain}><Text>{strings.appName}</Text></Pressable>
+                <Pressable onPress={navToMain}><StyledText text={strings.appName} /></Pressable>
                 <View>
                     <Pressable onPress={navToProfile}>
-                        <Text>{''}</Text>
+                        <StyledText  text={'Profile'} />
                     </Pressable>
                 </View>
             </View>
             
-            <HomeStack.Navigator>
+            <HomeStack.Navigator screenOptions={{headerShown: false}}>
                 <HomeStack.Screen name={routes.main} component={Main} />
                 <HomeStack.Screen name={routes.profile} component={Profile} />
                 <HomeStack.Screen name={routes.lessons} component={Lessons} />
@@ -50,8 +51,10 @@ export default function Home({ navigation }) {
 
 const styles = StyleSheet.create({
     home: {
+        flex: 1,
+        height: '100%',
         width: '100%',
-        heigh: '100%',
-        backgroundColor: "#000"
+        backgroundColor: colors.neutral2,
+        color: colors.secondary
     }
 })

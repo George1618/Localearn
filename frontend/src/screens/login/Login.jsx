@@ -21,7 +21,7 @@ export default function Login({ navigation }) {
     }
 
     function navToSignup() {
-        navigation.navigate(strings.routes.login);
+        navigation.push(strings.routes.signup);
     }
 
     return (<View>

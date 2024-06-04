@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import strings from "../../../assets/strings";
 
@@ -10,8 +10,14 @@ export default function Statistics({ navigation }) {
 
     return (
         <View>
-            <Text>{s.headerStatistics}</Text>
+            <Text style={styles.text}>{s.headerStatistics}</Text>
             {/* Criar componentes e estrutura de desempenho */}
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    text: {
+        color: '#000'
+    }
+})

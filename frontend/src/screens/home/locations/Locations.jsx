@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import LocationCard from "../../../components/LocationCard";
 
@@ -13,11 +13,17 @@ export default function Locations({ navigation }) {
 
     return (
         <View>
-            <Text>{s.headerLocations}</Text>
+            <Text style={styles.text}>{s.headerLocations}</Text>
             {locations.length ? 
                 locations.map(loc => <LocationCard location={loc} />)
                 : 
-                <Text>{s.textEmpty}</Text>}
+                <Text style={styles.text}>{s.textEmpty}</Text>}
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    text: {
+        color: '#000'
+    }
+})
