@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { useContext, useEffect, useState } from "react";
+import { View } from "react-native";
 
 import LNI from "../../../components/LabeledNameInput";
 import LPI from "../../../components/LabeledPasswordInput";
@@ -7,17 +7,22 @@ import ActionButton from "../../../components/ActionButton";
 
 import strings from "../../../assets/strings";
 import StyledText from "../../../components/StyledText";
+import AuthContext from "../../../contexts/auth";
 
 const s = strings.home.profile;
 
 export default function Profile({ navigation }) {
+    const {user, setUser} = useContext(AuthContext);
+
+    // para a edição
     const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    // removida a edição de senha; dependendo de como o backend trata ela, o campo pode voltae
     const [isEditing, setIsEditing] = useState(false);
 
-    // obter usuário por props, por context/redux/etc., ou por chamada ao backend
+    useEffect(() => {setUsername(user?.name || "")}, [user])
 
     function updateUser() {
+        setUser({...user, name: username})
         // chamada ao backend para fazer as alterações usando os states acima
         // se der certo alterar:
         setIsEditing(false);
@@ -25,6 +30,7 @@ export default function Profile({ navigation }) {
 
     function setEdit() {
         // para maior segurança, mostrar diálogo pedindo pra confirmar senha atual
+        // TODO: criar diálogo de alerta
         setIsEditing(true);
     }
 
@@ -35,10 +41,6 @@ export default function Profile({ navigation }) {
                 label={s.labelUsername}
                 value={username}
                 onEdit={setUsername} />
-            <LPI
-                label={s.labelPassword}
-                value={password}
-                onEdit={setPassword} />
             <ActionButton
                 text={isEditing ? s.buttonConfirm : s.buttonEdit} 
                 action={isEditing ? updateUser : setEdit} />

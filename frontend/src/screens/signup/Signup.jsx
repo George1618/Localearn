@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Text, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
@@ -19,7 +19,14 @@ export default function Signup({ navigation }) {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [isTeacher, setIsTeacher] = useState(false);
 
+    function validation() {
+        return confirmPassword!=="" && confirmPassword!==password ?
+            s.invalidPassword :
+            ""
+    }
+
     function signup() {
+        if (password!==confirmPassword) {}
         /* cadastrar usuário com os states: username, password, isTeacher */
         // após sucesso, ir para tela de login
         navigation.navigate(strings.routes.login);
@@ -39,7 +46,8 @@ export default function Signup({ navigation }) {
             label={s.labelConfirmPassword}
             isNew={true}
             value={confirmPassword}
-            onEdit={setConfirmPassword} />
+            onEdit={setConfirmPassword}
+            validation={validation} />
 
         <StyledText text={s.pickerLabel}/>
         <Picker selectedValue={isTeacher} onValueChange={value => setIsTeacher(value)} 

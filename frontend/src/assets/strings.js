@@ -12,16 +12,17 @@ const strings = {
     },
     // screens
     home: {
+        header: {
+            optionProfile: "Perfil",
+            optionLogOut: "Sair"
+        },
         profile: {
             headerProfile: "Seu Perfil",
             labelUsername: "Nome de usuário",
             labelPassword: "Senha",
             buttonEdit: "Editar",
             buttonConfirm: "Salvar alterações",
-            profileDialog: {
-                buttonView: "Minha conta",
-                buttonLogout: "Sair"
-            }
+            buttonReturn: "Voltar à tela inicial"
         },
         main: {
             buttonLessons: "Exercícios",
@@ -53,6 +54,7 @@ const strings = {
         labelUsername: "Nome de usuário",
         labelPassword: "Senha",
         labelConfirmPassword: "Confirmar senha",
+        invalidPassword: "Senhas não estão iguais",
         pickerLabel: "Sou:",
         pickerStudent: "Aluno",
         pickerTeacher: "Professor",

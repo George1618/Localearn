@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { StyleSheet, Button, Pressable, Text, TextInput, View } from "react-native";
+import { useContext, useState } from "react";
+import { StyleSheet, Pressable, Text, View } from "react-native";
+
+import AuthContext from "../../contexts/auth";
 
 import LNI from "../../components/LabeledNameInput";
 import LPI from "../../components/LabeledPasswordInput";
@@ -11,20 +13,27 @@ const s = strings.login;
 
 export default function Login({ navigation }) {
 
+    // para autenticação com backend, usar apenas setUser
+    const {_, setUser} = useContext(AuthContext);
+
+    // para os campos de preenchimento
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     function login() {
+        // usado apenas pré-conexão com backend; remover após conexão
+        const user = {name: username, isTeacher: false}
         // autenticar usando os states username e password 
         // Se der certo:
-        navigation.navigate(strings.routes.home);
+        setUser(user);
     }
 
     function navToSignup() {
         navigation.push(strings.routes.signup);
     }
 
-    return (<View>
+    return (
+    <View>
         <LNI
             label={s.labelUser}
             value={username}
@@ -43,7 +52,8 @@ export default function Login({ navigation }) {
         </Text>
         
         <ActionButton text={s.buttonLogin} action={login} />
-    </View>);
+    </View>
+    );
 }
 
 const styles = StyleSheet.create({
