@@ -4,12 +4,8 @@ const colors = {
     black: "#000",
     white: "#fff",
     red: "#f77",
-    green: "#0a2",
     blue: "#02a",
     darkblue: "#017",
-    gray: "777",
-    dark_semitransparent: "rgba(0,0,0,0.5)",
-    light_shadow: "rgba(255,255,255,0.3)"
 };
 
 const styles = StyleSheet.create({
@@ -94,6 +90,7 @@ const styles = StyleSheet.create({
     },
 
     main_container: {
+        height: '100%',
         backgroundColor: colors.blue
     },
     main: {
@@ -121,12 +118,6 @@ const styles = StyleSheet.create({
     },
 
     main_header: {
-        height: '30%',
-        width: '100%',
-        textAlign: 'center',
-        textAlignVertical: 'center'
-    },
-    main_profile_header: {
         height: '15%',
         marginHorizontal: '5%',
         marginBottom: '5%',
@@ -158,7 +149,30 @@ const styles = StyleSheet.create({
         height: '20%',
         width: '100%',
         textAlign: 'center',
-        textAlignVertical: 'center'
+        textAlignVertical: 'center',
+        color: colors.white
+    },
+
+    statistics_item: {
+        backgroundColor: colors.darkblue,
+        marginBottom: '1%',
+        height: '12%',
+        width: '90%',
+        alignSelf: 'center',
+        padding: '2%'
+    },
+    statistics_item_title: {
+        color: colors.white,
+        fontSize: 18
+    },
+    statistics_item_percentage_container: {
+        height: '50%',
+        backgroundColor: colors.white
+    },
+    statistics_item_percentage_text: {
+        height: '100%',
+        textAlignVertical: 'center',
+        color: colors.blue
     },
 
     lesson_header: {
@@ -169,6 +183,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     lesson_title: {
+        color: colors.white,
         textAlignVertical: 'center',
         alignContent: 'center',
         fontWeight: 'bold',
@@ -176,10 +191,10 @@ const styles = StyleSheet.create({
     },
     lesson_container: {
         height: '85%', 
-        width: '100%', 
-        backgroundColor: colors.dark_semitransparent
+        width: '100%'
     },
     lesson_loading: {
+        color: colors.white,
         height: '100%',
         width: '100%',
         textAlign: 'center',
@@ -189,18 +204,32 @@ const styles = StyleSheet.create({
         alignSelf: 'center', 
         height: '80%', 
         width: '95%', 
-        backgroundColor: colors.light_shadow,
+        backgroundColor: colors.white,
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        justifyContent: 'space-around'
     },
     lesson_question: {
-        height: '90%'
+        color: colors.blue,
+        alignSelf: 'center',
+        fontSize: 20
+    },
+    lesson_input_container: {
+        width: '80%',
+        alignSelf: 'center',
+        backgroundColor: colors.white,
+        borderBottomWidth: 1,
+        borderColor: colors.blue
     },
     lesson_input: {
-        height: '5%'
+        overflow: 'hidden',
+        color: colors.blue
     },
     lesson_submit: {
-        alignSelf: 'flex-end'
+        backgroundColor: colors.blue
+    },
+    lesson_submit_text: {
+        color: colors.white
     },
 
     non_home_header: {
@@ -240,7 +269,7 @@ const styles = StyleSheet.create({
         width: "75%",
         overflow: 'hidden',
         borderRadius: 10,
-        backgroundColor: colors.light_shadow
+        backgroundColor: colors.darkblue
     },
     signup_picker_item: {
         color: colors.white

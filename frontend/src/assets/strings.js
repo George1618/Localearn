@@ -59,7 +59,7 @@ const strings = {
         pickerLabel: "Sou:",
         pickerStudent: "Aluno",
         pickerTeacher: "Professor",
-        buttonSignup: "Cadastrar-se"
+        buttonSignup: "Cadastrar"
     }
 }
 

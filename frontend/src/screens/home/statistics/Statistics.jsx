@@ -10,16 +10,19 @@ const s = strings.home.statistics;
 
 export default function Statistics({ navigation }) {
     // puxar estatísticas reais do backend
-    const [stats, setStats] = useState({"gramática": 0.50, "vocabulário": 0.95});
+    const [stats, _] = useState([
+        {title: "Gramática", percentage: 80}, 
+        {title: "Ortografia", percentage: 50}, 
+        {title: "Vocabulário", percentage: 99.5}
+    ]);
 
     return (
-        <View>
+        <View style={styles.main_container}>
             <StyledText text={s.headerStatistics} style={styles.main_header} />
-            {Object.keys(stats).map(key => 
+            {stats.map((item, key) => 
                 <StatisticsItem 
                     key={key}
-                    name={key} 
-                    percentage={stats[key]} 
+                    item={item} 
                     />)}
         </View>
     );

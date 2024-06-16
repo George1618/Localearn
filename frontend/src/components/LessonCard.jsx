@@ -11,8 +11,14 @@ export default function LessonCard({ lesson, onDone }) {
     const [answer, setAnswer] = useState("")
 
     return (<View style={styles.lesson}>
-        <StyledText text={lesson.question} style={{}} />
-        <TextInput style={{}} defaultValue={answer} onChangeText={(text) => setAnswer(text)} />
-        <ActionButton text={s.buttonSubmit} action={() => {onDone(answer); setAnswer("")}} style={styles.lesson_submit} />
+        <StyledText text={lesson.question} style={styles.lesson_question} />
+        <View style={styles.lesson_input_container}>
+            <TextInput style={styles.lesson_input} defaultValue={answer} onChangeText={(text) => setAnswer(text)} />
+        </View> 
+        <ActionButton 
+            text={s.buttonSubmit} 
+            action={() => {onDone(answer); setAnswer("")}} 
+            style={{...styles.submit_button, ...styles.lesson_submit}}
+            textStyle={{...styles.submit_button_text, ...styles.lesson_submit_text}} />
     </View>)
 }

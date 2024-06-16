@@ -36,7 +36,7 @@ export default function Profile({ navigation }) {
 
     return (
         <View style={styles.main_container}>
-            <StyledText text={s.headerProfile} style={styles.main_profile_header} />
+            <StyledText text={s.headerProfile} style={styles.main_header} />
             <LNI 
                 label={s.labelUsername}
                 value={username}

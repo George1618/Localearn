@@ -14,7 +14,7 @@ export default function Locations({ navigation }) {
     const [locations, _] = useState([]); // obter pelo backend
 
     return (
-        <View>
+        <View style={styles.main_container}>
             <StyledText text={s.headerLocations} style={styles.main_header} />
             {locations.length ? 
                 locations.map(location => <LocationCard location={location} />)
