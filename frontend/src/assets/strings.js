@@ -22,7 +22,7 @@ const strings = {
             labelPassword: "Senha",
             buttonEdit: "Editar",
             buttonConfirm: "Salvar alterações",
-            buttonReturn: "Voltar à tela inicial"
+            buttonCancel: "Cancelar"
         },
         main: {
             buttonLessons: "Exercícios",
@@ -33,7 +33,8 @@ const strings = {
             headerLessons: "Exercício",
             lessonDialog: {
                 textLoading: "Carregando exercícios..."
-            }
+            },
+            buttonSubmit: "Responder"
         },
         statistics: {
             headerStatistics: "Seu Desempenho"

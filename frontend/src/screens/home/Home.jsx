@@ -1,4 +1,4 @@
-import {StyleSheet, View, Text, Pressable, Image} from 'react-native';
+import {View} from 'react-native';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -9,10 +9,10 @@ import Statistics from './statistics/Statistics';
 import Locations from './locations/Locations';
 
 import strings from '../../assets/strings';
-import colors from '../../assets/colors';
 import Header from './header/Header';
 import { useContext } from 'react';
 import AuthContext from '../../contexts/auth';
+import styles from '../../assets/styles';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -31,12 +31,13 @@ export default function Home({ navigation }) {
 
     return (
         <View style={styles.home}>
-            <HomeStack.Navigator screenOptions={{header: () => 
-                <Header titleNav={navToMain} menu={[
+            <Header titleNav={navToMain} menu={[
                     {title: home.header.optionProfile, action: navToProfile},
                     {title: home.header.optionLogOut, action: navUnloggedToLogin}
                 ]} />
-            }}>
+            <HomeStack.Navigator screenOptions={{
+                header: () => null, headerShown: false, contentStyle: styles.main_container}}
+            >
                 <HomeStack.Screen name={routes.main} component={Main} />
                 <HomeStack.Screen name={routes.profile} component={Profile} />
                 <HomeStack.Screen name={routes.lessons} component={Lessons} />
@@ -46,11 +47,3 @@ export default function Home({ navigation }) {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    home: {
-        flex: 1,
-        backgroundColor: colors.neutral1,
-        color: colors.secondary
-    }
-})

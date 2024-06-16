@@ -1,15 +1,10 @@
-import { Button, StyleSheet } from "react-native";
-import colors from "../assets/colors";
+import { Pressable } from "react-native";
+import StyledText from "./StyledText";
 
-export default function ActionButton({text, action}) {
+export default function ActionButton({text, action, style={}, textStyle={}}) {
     return (
-        <Button style={style} onPress={action} title={text}>{text}</Button>
+        <Pressable style={style} onPress={action}>
+            <StyledText style={textStyle} text={text} />
+        </Pressable>
     )
 }
-
-const style = StyleSheet.create({
-    button: {
-        backgroundColor: colors.neutral2,
-        color: colors.black
-    }
-}).button;

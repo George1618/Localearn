@@ -11,6 +11,7 @@ import strings from './src/assets/strings';
 import {StyleSheet,  View } from 'react-native';
 import colors from './src/assets/colors';
 import AuthContext from './src/contexts/auth';
+import styles from './src/assets/styles';
 
 const { routes } = strings;
 
@@ -22,12 +23,12 @@ function App(): React.JSX.Element {
   const [user, setUser] = useState(null);
 
   return (
-    <View style={styles.app}>
+    <View style={styles.body}>
       <AuthContext.Provider value={{user, setUser}}>
         <NavigationContainer>
           <Stack.Navigator 
             screenOptions={{header: () => null, headerShown: false,
-              contentStyle: styles.content
+              contentStyle: styles.app_content
             }}>
               {
                 user===null ? 
@@ -43,15 +44,5 @@ function App(): React.JSX.Element {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  app: {
-    flex: 1
-  },
-  content: {
-    flex: 1,
-    backgroundColor: colors.neutral2
-  }
-})
 
 export default App;

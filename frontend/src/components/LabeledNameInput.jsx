@@ -1,13 +1,14 @@
 import { Text, TextInput } from "react-native";
 import StyledText from "./StyledText";
-import colors from "../assets/colors";
+import styles from "../assets/styles";
 
-export default function LabeledNameInput({ label, value, onEdit }) {
+export default function LabeledNameInput({ label, value, onEdit, editable=true }) {
     return (<>
-        <StyledText text={label} />
+        <StyledText text={label} style={styles.labeled_name_text} />
         <TextInput 
-            style={{color: colors.white, backgroundColor: colors.secondary}}
+            style={styles.labeled_name_input}
             textContentType={'username'}
+            editable={editable}
             defaultValue={value}
             onChangeText={value => onEdit(value)} />
     </>)

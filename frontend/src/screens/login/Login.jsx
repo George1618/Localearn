@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { StyleSheet, Pressable, Text, View } from "react-native";
+import { Button, Pressable, Text, View } from "react-native";
 
 import AuthContext from "../../contexts/auth";
 
@@ -8,6 +8,8 @@ import LPI from "../../components/LabeledPasswordInput";
 import ActionButton from "../../components/ActionButton";
 
 import strings from "../../assets/strings";
+import styles from "../../assets/styles";
+import StyledText from "../../components/StyledText";
 
 const s = strings.login;
 
@@ -21,10 +23,8 @@ export default function Login({ navigation }) {
     const [password, setPassword] = useState("");
 
     function login() {
-        // usado apenas pré-conexão com backend; remover após conexão
+        // TODO: remover exemplo abaixo para puxar do Firebase
         const user = {name: username, isTeacher: false}
-        // autenticar usando os states username e password 
-        // Se der certo:
         setUser(user);
     }
 
@@ -33,7 +33,8 @@ export default function Login({ navigation }) {
     }
 
     return (
-    <View>
+    <View style={styles.body}>
+        <StyledText text={strings.appName} style={styles.non_home_header} />
         <LNI
             label={s.labelUser}
             value={username}
@@ -44,20 +45,15 @@ export default function Login({ navigation }) {
             value={password}
             onEdit={setPassword} />
         
-        <Text>
-            { s.textSignupLine }
+        <View style={styles.login_signup}>
+            <StyledText text={ s.textSignupLine+"   " } style={styles.login_signup_text} />
             <Pressable onPress={navToSignup}>
-                <Text style={styles.toSignup}>{s.textSignup}</Text>
+                <StyledText text={s.textSignup} style={styles.login_signup_link} />
             </Pressable>
-        </Text>
+        </View>
         
-        <ActionButton text={s.buttonLogin} action={login} />
+        <ActionButton text={s.buttonLogin} action={login} 
+            style={styles.submit_button} textStyle={styles.submit_button_text} />
     </View>
     );
 }
-
-const styles = StyleSheet.create({
-    toSignup: {
-        color: '#F03030'
-    }
-})

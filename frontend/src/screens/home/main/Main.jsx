@@ -1,8 +1,9 @@
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 
 import ActionButton from "../../../components/ActionButton";
 
 import strings from "../../../assets/strings";
+import styles from "../../../assets/styles";
 
 const s = strings.home.main;
 const { routes } = strings;
@@ -14,16 +15,22 @@ export default function Main({ navigation }) {
     }
 
     return (
-        <View style={styles.home}>
-            <ActionButton text={s.buttonLessons} action={() => navTo(routes.lessons)} />
-            <ActionButton text={s.buttonStatistics} action={() => navTo(routes.statistics)} />
-            <ActionButton text={s.buttonLocations} action={() => navTo(routes.locations)} />
+        <View style={styles.main}>
+            <ActionButton 
+                text={s.buttonLessons} 
+                action={() => navTo(routes.lessons)} 
+                style={styles.main_item}
+                textStyle={styles.main_item_text} />
+            <ActionButton 
+                text={s.buttonStatistics} 
+                action={() => navTo(routes.statistics)}
+                style={styles.main_item}
+                textStyle={styles.main_item_text} />
+            <ActionButton 
+                text={s.buttonLocations} 
+                action={() => navTo(routes.locations)}
+                style={styles.main_item}
+                textStyle={styles.main_item_text} />
         </View>
     );
 }
-
-const styles =StyleSheet.create({
-    home: {
-        backgroundColor: "#2277FF"
-    }
-})

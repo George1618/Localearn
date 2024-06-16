@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
@@ -8,7 +8,7 @@ import ActionButton from "../../components/ActionButton";
 
 import strings from "../../assets/strings";
 import StyledText from "../../components/StyledText";
-import colors from "../../assets/colors";
+import styles from "../../assets/styles";
 
 const s = strings.signup;
 
@@ -19,11 +19,13 @@ export default function Signup({ navigation }) {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [isTeacher, setIsTeacher] = useState(false);
 
-    function validation() {
-        return confirmPassword!=="" && confirmPassword!==password ?
+    const [validation, setValidation] = useState("")
+    useEffect(() => {
+        let invalidText = confirmPassword!=="" && confirmPassword!==password ?
             s.invalidPassword :
             ""
-    }
+        setValidation(invalidText)
+    }, [confirmPassword])
 
     function signup() {
         if (password!==confirmPassword) {}
@@ -33,6 +35,7 @@ export default function Signup({ navigation }) {
     }
 
     return (<View>
+        <StyledText text={strings.appName} style={styles.non_home_header} />
         <LNI 
             label={s.labelUsername}
             value={username}
@@ -48,14 +51,16 @@ export default function Signup({ navigation }) {
             value={confirmPassword}
             onEdit={setConfirmPassword}
             validation={validation} />
+        <View style={styles.signup_picker_container}>
+            <StyledText text={s.pickerLabel} style={styles.signup_picker_text}/>
+            <Picker selectedValue={isTeacher} onValueChange={value => setIsTeacher(value)} 
+                style={styles.signup_picker}>
+                <Picker.Item label={s.pickerStudent} style={styles.signup_picker_item} value={false}/>
+                <Picker.Item label={s.pickerTeacher} style={styles.signup_picker_item} value={true}/>
+            </Picker>
+        </View>
 
-        <StyledText text={s.pickerLabel}/>
-        <Picker selectedValue={isTeacher} onValueChange={value => setIsTeacher(value)} 
-            style={{color: colors.black}}>
-            <Picker.Item label={s.pickerStudent} value={false} />
-            <Picker.Item label={s.pickerTeacher} value={true}/>
-        </Picker>
-
-        <ActionButton text={s.buttonSignup} action={signup} />
+        <ActionButton text={s.buttonSignup} action={signup}
+            style={styles.submit_button} textStyle={styles.submit_button_text} />
     </View>);
 }
