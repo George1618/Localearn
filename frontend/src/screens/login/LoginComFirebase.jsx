@@ -24,7 +24,7 @@ export default function Login({ navigation }) {
         try {
             const userCredential = await auth.signInWithEmailAndPassword(username, password);
             const user = userCredential.user;
-            setUser({ name: user.displayName || user.email, isTeacher: false }); // Ajuste conforme suas necessidades
+            setUser({ name: user.displayName || user.email, isTeacher: false });
             console.log('Usuário logado com sucesso!');
         } catch (error) {
             console.error('Erro ao fazer login:', error.message);
