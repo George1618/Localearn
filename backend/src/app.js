@@ -7,21 +7,35 @@ const serviceAccount = require('../serviceAccountKey.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://console.firebase.google.com/u/0/project/localearn-687d1/firestore?hl=pt-br'
+  databaseURL: 'https://localearn-687d1.firebaseio.com'
 });
 
 const db = admin.firestore();
 
-async function saveUserData(id, userData) {
-  await db.collection('alunos').doc(id).set(userData);
+async function saveAlunoData(id, alunoData) {
+  await db.collection('alunos').doc(id).set(alunoData);
 }
 
-async function getUserData(id) {
-  const userDoc = await db.collection('alunos').doc(id).get();
-  if (userDoc.exists) {
-    return userDoc.data();
+async function getAlunoData(id) {
+  const alunoDoc = await db.collection('alunos').doc(id).get();
+  if (alunoDoc.exists) {
+    return alunoDoc.data();
   } else {
-    console.log('Documento não encontrado');
+    console.log('Documento de aluno não encontrado');
+    return null;
+  }
+}
+
+async function saveProfessorData(id, professorData) {
+  await db.collection('professores').doc(id).set(professorData);
+}
+
+async function getProfessorData(id) {
+  const professorDoc = await db.collection('professores').doc(id).get();
+  if (professorDoc.exists) {
+    return professorDoc.data();
+  } else {
+    console.log('Documento de professor não encontrado');
     return null;
   }
 }

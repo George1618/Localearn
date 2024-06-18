@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
-import { auth } from "../../services/firebaseConfig";
+import { auth, db } from "../../services/firebaseConfig";
 
 import LNI from "../../components/LabeledNameInput";
 import LPI from "../../components/LabeledPasswordInput";
@@ -32,11 +32,21 @@ export default function Signup({ navigation }) {
             return;
         }
         try {
-            const userCredential = await auth.createUserWithEmailAndPassword(username, password);
+            const userCredential = await auth().createUserWithEmailAndPassword(username, password);
             const user = userCredential.user;
+
             await user.updateProfile({
                 displayName: username
             });
+
+            const userData = {
+                email: user.email,
+                nome: username,
+            };
+
+            const collection = isTeacher ? 'professores' : 'alunos';
+            await db.collection(collection).doc(user.uid).set(userData);
+
             navigation.navigate(strings.routes.login);
         } catch (error) {
             console.error('Erro ao cadastrar:', error.message);

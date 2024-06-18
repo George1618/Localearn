@@ -17,12 +17,12 @@ const s = strings.login;
 export default function Login({ navigation }) {
     const { setUser } = useContext(AuthContext);
 
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     async function login() {
         try {
-            const userCredential = await auth.signInWithEmailAndPassword(username, password);
+            const userCredential = await auth().signInWithEmailAndPassword(email, password);
             const user = userCredential.user;
             setUser({ name: user.displayName || user.email, isTeacher: false });
             console.log('Usuário logado com sucesso!');
@@ -40,8 +40,8 @@ export default function Login({ navigation }) {
             <StyledText text={strings.appName} style={styles.non_home_header} />
             <LNI
                 label={s.labelUser}
-                value={username}
-                onEdit={setUsername}
+                value={email}
+                onEdit={setEmail}
             />
             <LPI
                 label={s.labelPassword}
