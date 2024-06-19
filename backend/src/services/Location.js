@@ -1,10 +1,10 @@
 // A classe Location vai utilizar alguma API para pegar os dados de localização do dispositivo (latitude e longitude) para passar para o controller que vai usar esses dados na chamada da API
-const axios = require('axios');
-const wifiScanner = require('node-wifi-scanner');
+import axios from 'axios';
+import wifiScanner from 'node-wifi-scanner';
 
 const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
 
-class Location {
+export default class Location {
     constructor() {}
 
     async getCurrentLocation() {
@@ -63,5 +63,3 @@ class Location {
         });
     }
 }
-
-module.exports = Location;

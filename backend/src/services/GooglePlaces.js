@@ -1,12 +1,14 @@
 //Classe para chamar a API do GooglePlaces, ele já está conseguindo encontrar lugares próximos, porém precisa de um type especifico (como restaurante), precisamos pegar algo mais geral
 
-const googleMaps = require('@google/maps');
-const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
-const { haversineDistance } = require('./Haversine');
+import { createClient } from '@google/maps';
+import { haversineDistance } from './Haversine.js';
 
-class GooglePlaces {
+const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
+
+
+export default class GooglePlaces {
     constructor(){
-        this.googleMapsClient = googleMaps.createClient({
+        this.googleMapsClient = createClient({
             key: googleMapsApiKey
         });
     }
@@ -83,5 +85,3 @@ class GooglePlaces {
         }
     }   
 }
-
-module.exports = GooglePlaces;
