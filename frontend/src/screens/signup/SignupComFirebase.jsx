@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
-import { signup } from "../../services/api"; // Importe a função de signup do serviço API
+import { signup } from "../../services/api";
 
 import LNI from "../../components/LabeledNameInput";
 import LPI from "../../components/LabeledPasswordInput";

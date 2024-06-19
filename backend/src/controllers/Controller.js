@@ -1,59 +1,57 @@
-const fs = require('fs').promises;
-const path = require('path');
+import Location from '../services/Location.js';
+import GooglePlaces from '../services/GooglePlaces.js';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-class Controller{
-    constructor(L, GL){
-        this.location = L;
-        this.googlePlaces = GL;
-    }
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-    async init() {
-        const localizacao = await this.pegarLocalizacao();
-        console.log(localizacao);
-        const pergunta = await this.pegaPergunta(localizacao);
-    }
+const location = new Location();
+const googlePlaces = new GooglePlaces();
 
-    async pegarLocalizacao() {
-        try {
-            const coordenadas = await this.location.getCurrentLocation();
-            console.log(coordenadas);
-            const resultado = await this.googlePlaces.initMap(coordenadas[0], coordenadas[1]);
-            return resultado;
-        } catch (error) {
-            console.error('Erro:', error);
+async function getExercicio(req, res) {
+    try {
+        const coordenadas = await location.getCurrentLocation();
+        const local = await googlePlaces.initMap(coordenadas[0], coordenadas[1]);
+        const perguntas = await carregarPerguntas();
+        const perguntasFiltradas = perguntas.filter(pergunta => pergunta.local === local);
+        if (perguntasFiltradas.length > 0) {
+            const perguntaSelecionada = selecionarPerguntaAleatoria(perguntasFiltradas);
+            res.status(200).send({
+                pergunta: perguntaSelecionada.pergunta,
+                resposta: perguntaSelecionada.resposta
+            });
+        } else {
+            res.status(404).send({
+                codigo: 404,
+                mensagem: "Nenhuma pergunta encontrada para esta localização"
+            });
         }
-    }
-
-    async pegaPergunta(localizacao) {
-        try {
-            const perguntas = await this.carregarPerguntas();
-            const perguntasFiltradas = perguntas.filter(pergunta => pergunta.local === localizacao);
-            if (perguntasFiltradas.length > 0) {
-                const perguntaSelecionada = this.selecionarPerguntaAleatoria(perguntasFiltradas);
-                console.log('Pergunta:', perguntaSelecionada.pergunta);
-                console.log('Resposta:', perguntaSelecionada.resposta);
-            } else {
-                console.log('Nenhuma pergunta encontrada para esta localização.');
-            }
-        } catch (error) {
-            throw error;
-        }
-    }
-
-    async carregarPerguntas() {
-        try {
-            const filePath = path.join(__dirname, '..', 'perguntas', 'Perguntas.json');
-            const data = await fs.readFile(filePath);
-            return JSON.parse(data);
-        } catch (error) {
-            throw error;
-        }
-    }
-
-    selecionarPerguntaAleatoria(perguntas) {
-        const indiceAleatorio = Math.floor(Math.random() * perguntas.length);
-        return perguntas[indiceAleatorio];
+    } catch (e) {
+        res.status(422).send({
+            codigo: 500,
+            mensagem: "Erro no servidor interno"
+        });
     }
 }
 
-module.exports = Controller;
+async function carregarPerguntas() {
+    try {
+        const filePath = path.join(__dirname, '..', 'perguntas', 'Perguntas.json');
+        const data = await fs.readFile(filePath);
+        return JSON.parse(data);
+    } catch (error) {
+        throw error;
+    }
+}
+
+function selecionarPerguntaAleatoria(perguntas) {
+    const indiceAleatorio = Math.floor(Math.random() * perguntas.length);
+    return perguntas[indiceAleatorio];
+}
+
+export default {
+    getExercicio,
+};
