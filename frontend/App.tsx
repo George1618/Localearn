@@ -14,6 +14,7 @@ import styles from './src/assets/styles';
 
 import { auth } from './src/services/firebaseConfig';
 import firebase from './src/services/firebaseConfig';
+import { checkAuth } from './src/services/api';
 
 const { routes } = strings;
 const Stack = createNativeStackNavigator();
@@ -23,13 +24,29 @@ function App() {
   const [user, setUser] = useState<firebase.User | null>(null);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      setUser(user);
-      if (initializing) setInitializing(false);
-    });
-
-    return unsubscribe;
-  }, [initializing]);
+    const checkAuthentication = async () => {
+      try {
+        const currentUser = auth.currentUser;
+        if (currentUser) {
+          const token = await currentUser.getIdToken();
+          const response = await checkAuth(token);
+          const uid = response.uid;
+  
+          setUser({ uid });
+          if (initializing) setInitializing(false);
+        } else {
+          setUser(null);
+          if (initializing) setInitializing(false);
+        }
+      } catch (error: any) {
+        console.error('Erro ao verificar autenticação:', error.message);
+        setUser(null);
+        if (initializing) setInitializing(false);
+      }
+    };
+  
+    checkAuthentication();
+  }, [initializing]);  
 
   if (initializing) return <ActivityIndicator size="large" style={styles.loadingIndicator} />;
 

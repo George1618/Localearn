@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Button, Pressable, Text, View } from "react-native";
 
 import AuthContext from "../../contexts/auth";
-import { auth } from "../../services/firebaseConfig";
+import { login } from "../../services/api";
 
 import LNI from "../../components/LabeledNameInput";
 import LPI from "../../components/LabeledPasswordInput";
@@ -20,12 +20,12 @@ export default function Login({ navigation }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    async function login() {
+    async function handleLogin() {
         try {
-            const userCredential = await auth().signInWithEmailAndPassword(email, password);
-            const user = userCredential.user;
-            setUser({ name: user.displayName || user.email, isTeacher: false });
+            const data = await login(email, password);
+            setUser({ token: data.token, email });
             console.log('Usuário logado com sucesso!');
+            navigation.navigate(strings.routes.home);
         } catch (error) {
             console.error('Erro ao fazer login:', error.message);
         }
@@ -59,7 +59,7 @@ export default function Login({ navigation }) {
         
             <ActionButton
                 text={s.buttonLogin}
-                action={login}
+                action={handleLogin}
                 style={styles.submit_button}
                 textStyle={styles.submit_button_text}
             />

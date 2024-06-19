@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { useContext, useState } from "react";
+import { View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
-import { auth, db } from "../../services/firebaseConfig";
+import { signup } from "../../services/api"; // Importe a função de signup do serviço API
 
 import LNI from "../../components/LabeledNameInput";
 import LPI from "../../components/LabeledPasswordInput";
@@ -15,9 +15,10 @@ import styles from "../../assets/styles";
 const s = strings.signup;
 
 export default function Signup({ navigation }) {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [username, setUsername] = useState("");
     const [isTeacher, setIsTeacher] = useState(false);
 
     const [validation, setValidation] = useState("");
@@ -26,27 +27,13 @@ export default function Signup({ navigation }) {
         setValidation(invalidText);
     }, [confirmPassword]);
 
-    async function signup() {
+    async function handleSignup() {
         if (password !== confirmPassword) {
             setValidation(s.invalidPassword);
             return;
         }
         try {
-            const userCredential = await auth().createUserWithEmailAndPassword(username, password);
-            const user = userCredential.user;
-
-            await user.updateProfile({
-                displayName: username
-            });
-
-            const userData = {
-                email: user.email,
-                nome: username,
-            };
-
-            const collection = isTeacher ? 'professores' : 'alunos';
-            await db.collection(collection).doc(user.uid).set(userData);
-
+            await signup(email, password, username, isTeacher);
             navigation.navigate(strings.routes.login);
         } catch (error) {
             console.error('Erro ao cadastrar:', error.message);
@@ -88,7 +75,7 @@ export default function Signup({ navigation }) {
 
             <ActionButton
                 text={s.buttonSignup}
-                action={signup}
+                action={handleSignup}
                 style={styles.submit_button}
                 textStyle={styles.submit_button_text}
             />
