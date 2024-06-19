@@ -16,7 +16,11 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.blue
     },
-
+    loadingIndicator: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     home: {
         flex: 1,
         display: 'flex',
@@ -88,7 +92,6 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
         color: colors.white,
     },
-
     main_container: {
         height: '100%',
         backgroundColor: colors.blue
@@ -116,7 +119,6 @@ const styles = StyleSheet.create({
         height: '100%',
         fontSize: 24
     },
-
     main_header: {
         height: '15%',
         marginHorizontal: '5%',
@@ -144,7 +146,6 @@ const styles = StyleSheet.create({
     main_profile_button_text: {
         fontSize: 16
     },
-
     location_empty: {
         height: '20%',
         width: '100%',
@@ -152,7 +153,6 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
         color: colors.white
     },
-
     statistics_item: {
         backgroundColor: colors.darkblue,
         marginBottom: '1%',
@@ -174,7 +174,6 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
         color: colors.blue
     },
-
     lesson_header: {
         height: '15%',
         width: '100%',
@@ -231,7 +230,6 @@ const styles = StyleSheet.create({
     lesson_submit_text: {
         color: colors.white
     },
-
     non_home_header: {
         margin: 52,
         textAlign: 'center',
@@ -251,7 +249,6 @@ const styles = StyleSheet.create({
         textDecorationLine: "underline",
         color: colors.red
     },
-
     signup_picker_container: {
         marginLeft: "5%",
         marginVertical: "10%",
@@ -274,8 +271,6 @@ const styles = StyleSheet.create({
     signup_picker_item: {
         color: colors.white
     },
-
-    
     labeled_name_text: {
         marginLeft: "5%",
         marginTop: "5%",
@@ -324,7 +319,6 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         borderRadius: 10
     },
-
     submit_button: {
         backgroundColor: colors.white,
         alignSelf: 'center',
