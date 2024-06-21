@@ -1,13 +1,13 @@
 //Classe para chamar a API do GooglePlaces, ele já está conseguindo encontrar lugares próximos, porém precisa de um type especifico (como restaurante), precisamos pegar algo mais geral
 
-import { createClient } from '@google/maps';
-import { haversineDistance } from './Haversine.js';
+const { createClient } = require('@google/maps');
+const { haversineDistance } = require('./Haversine.js');
 
 const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 
-export default class GooglePlaces {
-    constructor(){
+class GooglePlaces {
+    constructor() {
         this.googleMapsClient = createClient({
             key: googleMapsApiKey
         });
@@ -20,7 +20,8 @@ export default class GooglePlaces {
             location: position,
             radius: 30,
             type: 'establishment'
-        }
+        };
+
         try {
             let placesPromise = new Promise((resolve, reject) => {
                 this.googleMapsClient.placesNearby(request, (err, response) => {
@@ -31,7 +32,7 @@ export default class GooglePlaces {
                     }
                 });
             });
-    
+
             let response = await placesPromise;
             let places = response.json.results;
 
@@ -40,10 +41,10 @@ export default class GooglePlaces {
                 const distanceB = haversineDistance(position.lat, position.lng, b.geometry.location.lat, b.geometry.location.lng);
                 return distanceA - distanceB;
             });
-    
-            for (let i in places){
-                for (let j in places[i].types){
-                    switch(places[i].types[j]){
+
+            for (let i in places) {
+                for (let j in places[i].types) {
+                    switch (places[i].types[j]) {
                         case 'restaurant':
                             return 'restaurant';
                         case 'movie_theater':
@@ -83,5 +84,7 @@ export default class GooglePlaces {
             console.error('Erro ao buscar estabelecimentos próximos:', error);
             return null;
         }
-    }   
+    }
 }
+
+module.exports = GooglePlaces;

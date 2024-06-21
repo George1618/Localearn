@@ -1,13 +1,18 @@
-import 'dotenv/config';
-import express from 'express';
-import router from "./routes.js";
+require('dotenv').config();
+const express = require('express');
+const router = require('./routes/routes.js');
+const authRouter = require('./routes/Auth.js');
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(process.env.BASE_ROUTE, router);
-app.listen(process.env.PORT);
+app.use("/localearn", router);
+app.use("/auth", authRouter);
 
-console.log(`rodando em localhost:${process.env.PORT}${process.env.BASE_ROUTE}/`);
+app.listen(process.env.PORT, () => {
+    console.log(`Rodando em http://localhost:${process.env.PORT}`);
+});
+
+module.exports = app;

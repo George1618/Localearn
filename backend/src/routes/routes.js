@@ -1,12 +1,11 @@
-import express from 'express';
+const express = require('express');
 const router = express.Router();
-
-import controller from './controllers/Controller.js';
+const controller = require('../controllers/Controller.js');
 
 router.get("/teste", async (req, res) => {
     res.send("Teste!");
-  });
+});
 
 router.get("/exercicio", controller.getExercicio);
 
-export default router
+module.exports = router;

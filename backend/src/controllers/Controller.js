@@ -1,12 +1,7 @@
-import Location from '../services/Location.js';
-import GooglePlaces from '../services/GooglePlaces.js';
-import { promises as fs } from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const Location = require('../services/Location.js');
+const GooglePlaces = require('../services/GooglePlaces.js');
+const fs = require('fs').promises;
+const path = require('path');
 
 const location = new Location();
 const googlePlaces = new GooglePlaces();
@@ -15,6 +10,9 @@ async function getExercicio(req, res) {
     try {
         const coordenadas = await location.getCurrentLocation();
         const local = await googlePlaces.initMap(coordenadas[0], coordenadas[1]);
+        if (local == undefined) {
+            //local = Aluno.local[0];
+        }
         const perguntas = await carregarPerguntas();
         const perguntasFiltradas = perguntas.filter(pergunta => pergunta.local === local);
         if (perguntasFiltradas.length > 0) {
@@ -52,6 +50,6 @@ function selecionarPerguntaAleatoria(perguntas) {
     return perguntas[indiceAleatorio];
 }
 
-export default {
+module.exports = {
     getExercicio,
 };
