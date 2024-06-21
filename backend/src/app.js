@@ -1,7 +1,3 @@
-const Controller = require('./controllers/Controller.js');
-const GooglePlaces = require('./sevices/GooglePlaces.js');
-const Location = require('./sevices/Location.js');
-
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -16,8 +12,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-let L = new Location();
-let GP = new GooglePlaces();
-let C = new Controller(L, GP);
-C.init();

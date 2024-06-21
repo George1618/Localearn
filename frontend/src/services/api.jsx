@@ -12,21 +12,43 @@ export const login = async (email, password) => {
 };
 
 export const signup = async (email, password, username, isTeacher) => {
-    try {
-      const response = await axios.post(`${API_URL}/signup`, { email, password, username, isTeacher });
-      return response.data;
-    } catch (error) {
-      throw new Error(error.response.data.error);
-    }
-  };
+  try {
+    const response = await axios.post(`${API_URL}/signup`, { email, password, username, isTeacher });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
+};
 
-  export const checkAuth = async (token) => {
-    try {
-      const response = await axios.get(`${API_URL}/checkAuth`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      return response.data;
-    } catch (error) {
-      throw new Error(error.response.data.error);
-    }
-  };
+export const checkAuth = async (token) => {
+  try {
+    const response = await axios.get(`${API_URL}/checkAuth`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
+};
+
+export const getUserData = async (token) => {
+  try {
+    const response = await axios.get(`${API_URL}/userData`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
+};
+
+export const updateUserData = async (token, userData) => {
+  try {
+    const response = await axios.put(`${API_URL}/userData`, userData, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
+};
