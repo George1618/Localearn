@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import LessonCard from "../../../components/LessonCard";
 import LessonDialog from "./LessonDialog";
+import { getExercicio } from '../../../services/api';
 
 import strings from "../../../assets/strings";
 import StyledText from "../../../components/StyledText";
@@ -16,26 +17,35 @@ export default function Lessons() {
     const [lessonCount, setLessonCount] = useState(0);
 
     useEffect(() => {
-        // atualizar lesson a partir do lessonCount e talvez outros parâmetros, como uma mudança repentina de localização
-        // estabelecer uma trajetória de funções, talvez com um limite para lessonCount
-        setLesson({id: 132, number: lessonCount+1, question: 'WDYS when you are done eating in a restaurant?'})
-        // atualiza a data
-        setDate(new Date());
-    }, [lessonCount])
+        const fetchLesson = async () => {
+            try {
+                const response = await getExercicio();
+                setLesson({
+                    id: response.id,
+                    number: lessonCount + 1,
+                    question: response.pergunta
+                });
+                setDate(new Date());
+            } catch (error) {
+                console.error("Failed to fetch lesson:", error);
+            }
+        };
 
-    // submete a resposta de um card e pede o próximo com o effect acima
+        fetchLesson();
+    }, [lessonCount]);
+
     function submitAnswer(answer) {
-        // enviar a resposta ao backend
-        setLessonCount(lessonCount+1)
+        // envia a resposta ao backend
+        setLessonCount(lessonCount + 1);
     }
 
     return (
         <View>
             <View style={styles.lesson_header}>
-                <StyledText text={s.headerLessons+` ${lesson.number}`} style={styles.lesson_title} />
+                <StyledText text={s.headerLessons + ` ${lesson.number}`} style={styles.lesson_title} />
                 <StyledText text={date.toLocaleDateString()} style={styles.lesson_title} />
             </View>
-            {lesson.id===undefined ? 
+            {lesson.id === undefined ? 
                 <LessonDialog /> 
                 : 
                 <LessonCard lesson={lesson} onDone={submitAnswer} />}

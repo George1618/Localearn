@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'http://localhost:5000/api';
 
 export const login = async (email, password) => {
   try {
@@ -47,6 +47,15 @@ export const updateUserData = async (token, userData) => {
     const response = await axios.put(`${API_URL}/userData`, userData, {
       headers: { Authorization: `Bearer ${token}` }
     });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
+};
+
+export const getExercicio = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/exercicio`);
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.error);
