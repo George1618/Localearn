@@ -128,3 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# informacao sensivel
+./src/services/serviceAccountKey.json
