@@ -39,7 +39,7 @@ router.get('/userData', async (req, res) => {
   
   router.put('/userData', async (req, res) => {
     const idToken = req.headers.authorization.split('Bearer ')[1];
-    const { email, nome, localizacao, nivel } = req.body;
+    const { email, nome } = req.body;
   
     try {
       const decodedToken = await admin.auth().verifyIdToken(idToken);
@@ -58,12 +58,10 @@ router.get('/userData', async (req, res) => {
         }
       }
   
-      // Por enquanto vou manter todos os campos aqui
+      // Atualizar os campos nome e email
       await userRef.update({
         email: email,
-        nome: nome,
-        localizacao: localizacao,
-        nivel: nivel
+        nome: nome
       });
   
       res.status(200).send({ message: 'User data updated successfully' });

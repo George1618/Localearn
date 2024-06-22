@@ -18,9 +18,6 @@ export default function Profile({ navigation }) {
 
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
-    const [isTeacher, setIsTeacher] = useState(false);
-    const [location, setLocation] = useState("");
-    const [level, setLevel] = useState("");
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
@@ -32,12 +29,6 @@ export default function Profile({ navigation }) {
 
                 setEmail(userData.email);
                 setUsername(userData.nome);
-                if (data.role === 'teacher') {
-                    setIsTeacher(true);
-                } else {
-                    setLocation(userData.localizacao || "");
-                    setLevel(userData.nivel || "");
-                }
             } catch (error) {
                 console.error('Erro ao recuperar dados do usuário:', error.message);
             }
@@ -51,9 +42,7 @@ export default function Profile({ navigation }) {
             const token = user.token;
             const userDataToUpdate = {
                 email: email,
-                nome: username,
-                localizacao: location,
-                nivel: level
+                nome: username
             };
 
             await updateUserData(token, userDataToUpdate);
@@ -78,22 +67,12 @@ export default function Profile({ navigation }) {
                 onEdit={setUsername}
                 editable={isEditing}
             />
-            {isTeacher ? null : (
-                <>
-                    <LNI
-                        label={s.labelLocation}
-                        value={location}
-                        onEdit={setLocation}
-                        editable={isEditing}
-                    />
-                    <LNI
-                        label={s.labelLevel}
-                        value={level}
-                        onEdit={setLevel}
-                        editable={isEditing}
-                    />
-                </>
-            )}
+            <LNI
+                label={s.labelEmail}
+                value={email}
+                onEdit={setEmail}
+                editable={isEditing}
+            />
             <View style={styles.main_profile_button_container}>
                 {isEditing ? (
                     <ActionButton
@@ -116,8 +95,7 @@ export default function Profile({ navigation }) {
                         action={() => {
                             setIsEditing(false);
                             setUsername(user?.name || "");
-                            setLocation(user?.location || "");
-                            setLevel(user?.level || "");
+                            setEmail(user?.email || "");
                         }}
                         style={{ ...styles.submit_button, ...styles.main_profile_button }}
                         textStyle={{ ...styles.submit_button_text, ...styles.main_profile_button_text }}
