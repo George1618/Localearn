@@ -1,4 +1,5 @@
 import axios from 'axios';
+import firebase from './firebaseConfig';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 

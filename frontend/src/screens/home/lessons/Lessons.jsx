@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { View } from "react-native";
 
 import LessonCard from "../../../components/LessonCard";
-import { getLesson } from '../../../services/api';
+import { getExercicio } from '../../../services/api';
 
 import strings from "../../../assets/strings";
 import StyledText from "../../../components/StyledText";
@@ -17,7 +17,7 @@ export default function Lessons() {
 
     async function fetchLesson() {
         try {
-            const response = await getLesson();
+            const response = await getExercicio();
             setLesson({
                 id: response.id,
                 number: lessonCount + 1,
@@ -27,7 +27,7 @@ export default function Lessons() {
         } catch (error) {
             console.error("Failed to fetch lesson:", error);
         }
-    };
+    }    
 
     useEffect(() => {
         // atualiza a data
