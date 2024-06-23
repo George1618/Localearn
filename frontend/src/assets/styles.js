@@ -16,6 +16,11 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.blue
     },
+    loadingIndicator: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 
     home: {
         flex: 1,

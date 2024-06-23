@@ -7,7 +7,9 @@ const strings = {
         profile: "Profile",
         main: "Main",
         lessons: "Lessons",
+        lessonsTeacher: "LessonsTeacher",
         statistics: "Statistics",
+        statisticsTeacher: "StatisticsTeacher",
         locations: "Locations",
     },
     // screens
@@ -19,7 +21,7 @@ const strings = {
         profile: {
             headerProfile: "Seu Perfil",
             labelUsername: "Nome de usuário",
-            labelPassword: "Senha",
+            labelEmail: "Email",
             buttonEdit: "Editar",
             buttonConfirm: "Salvar alterações",
             buttonCancel: "Cancelar"
@@ -31,10 +33,19 @@ const strings = {
         },
         lessons: {
             headerLessons: "Exercício",
-            lessonDialog: {
-                textLoading: "Carregando exercícios..."
-            },
-            buttonSubmit: "Responder"
+            buttonSubmit: "Responder",
+            labelQuestion: "Pergunta",
+            labelAnswer: "Resposta",
+            buttonEdit: "Editar",
+            buttonSave: "Salvar",
+            buttonCancel: "Cancelar",
+            buttonDelete: "Apagar",
+            buttonAdd: "Adicionar"
+        },
+        lessonsTeacher: {
+            headerLessons: "Exercícios",
+            lessonsEdit: "Editar",
+            lessonsSave: "Salvar Alterações"
         },
         statistics: {
             headerStatistics: "Seu Desempenho"
@@ -45,7 +56,7 @@ const strings = {
         }
     },
     login: {
-        labelUser: "Usuário",
+        labelUser: "Email",
         labelPassword: "Senha",
         textSignupLine: "Não tem conta?",
         textSignup: "Cadastre-se",
@@ -53,6 +64,7 @@ const strings = {
     },
     signup: {
         labelUsername: "Nome de usuário",
+        labelEmail: "Email",
         labelPassword: "Senha",
         labelConfirmPassword: "Confirmar senha",
         invalidPassword: "Senhas não estão iguais",

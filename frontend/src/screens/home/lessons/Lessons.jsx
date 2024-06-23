@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View } from "react-native";
 
 import LessonCard from "../../../components/LessonCard";
-import LessonDialog from "./LessonDialog";
+import { getLesson } from '../../../services/api';
 
 import strings from "../../../assets/strings";
 import StyledText from "../../../components/StyledText";
@@ -11,32 +11,44 @@ import styles from "../../../assets/styles";
 const s = strings.home.lessons;
 
 export default function Lessons() {
-    const [lesson, setLesson] = useState({});
+    const [lesson, setLesson] = useState(null);
     const [date, setDate] = useState(new Date());
     const [lessonCount, setLessonCount] = useState(0);
 
+    async function fetchLesson() {
+        try {
+            const response = await getLesson();
+            setLesson({
+                id: response.id,
+                number: lessonCount + 1,
+                question: response.pergunta
+            });
+            setDate(new Date());
+        } catch (error) {
+            console.error("Failed to fetch lesson:", error);
+        }
+    };
+
     useEffect(() => {
-        // atualizar lesson a partir do lessonCount e talvez outros parâmetros, como uma mudança repentina de localização
-        // estabelecer uma trajetória de funções, talvez com um limite para lessonCount
-        setLesson({id: 132, number: lessonCount+1, question: 'WDYS when you are done eating in a restaurant?'})
         // atualiza a data
         setDate(new Date());
-    }, [lessonCount])
+        // pega a próxima pergunta
+        fetchLesson();
+    }, [lessonCount]);
 
-    // submete a resposta de um card e pede o próximo com o effect acima
     function submitAnswer(answer) {
-        // enviar a resposta ao backend
-        setLessonCount(lessonCount+1)
+        // TODO: enviar a resposta ao backend
+        setLessonCount(lessonCount + 1);
     }
 
     return (
         <View>
             <View style={styles.lesson_header}>
-                <StyledText text={s.headerLessons+` ${lesson.number}`} style={styles.lesson_title} />
+                <StyledText text={s.headerLessons + ` ${lesson.number}`} style={styles.lesson_title} />
                 <StyledText text={date.toLocaleDateString()} style={styles.lesson_title} />
             </View>
-            {lesson.id===undefined ? 
-                <LessonDialog /> 
+            {lesson===null ? 
+                <ActivityIndicator size="large" color="#0000ff" style={styles.loadingIndicator} />
                 : 
                 <LessonCard lesson={lesson} onDone={submitAnswer} />}
         </View>
