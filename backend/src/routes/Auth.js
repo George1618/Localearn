@@ -1,13 +1,87 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../controllers/AuthController.js');
+const admin = require('firebase-admin');
 
-router.get("/teste", async (req, res) => {
-    res.send("Teste!");
+const serviceAccount = require('../services/serviceAccountKey.json');
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://localearn-687d1.firebaseio.com'
 });
 
-router.post('/login', authController.login);
-router.post('/signup', authController.signUp);
-router.get('/checkAuth', authController.checkAuth);
+router.post('/login', async (req, res) => {
+  const idToken = req.headers.authorization?.split(' ')[1];
+
+  if (!idToken) {
+    return res.status(401).send({ error: 'Token não fornecido' });
+  }
+
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(idToken);
+    const uid = decodedToken.uid;
+
+    // Verifica em qual coleção o usuário está (professores ou alunos)
+    let userData;
+    const professorDoc = await admin.firestore().collection('professores').doc(uid).get();
+    if (professorDoc.exists) {
+      userData = professorDoc.data();
+    } else {
+      const alunoDoc = await admin.firestore().collection('alunos').doc(uid).get();
+      if (alunoDoc.exists) {
+        userData = alunoDoc.data();
+      } else {
+        throw new Error('Usuário não encontrado em nenhuma coleção');
+      }
+    }
+
+    res.status(200).send({ token: idToken, userData });
+  } catch (error) {
+    res.status(400).send({ error: error.message });
+  }
+});
+
+router.post('/signup', async (req, res) => {
+  const { email, password, username, isTeacher } = req.body;
+
+  try {
+    const userCredential = await admin.auth().createUser({
+      email: email,
+      password: password,
+      displayName: username
+    });
+
+    const user = userCredential;
+
+    const userData = {
+      email: user.email,
+      nome: username,
+    };
+
+    const collection = isTeacher ? 'professores' : 'alunos';
+    await admin.firestore().collection(collection).doc(user.uid).set(userData);
+
+    res.status(201).send({ message: 'Usuário criado com sucesso!' });
+  } catch (error) {
+    res.status(400).send({ error: error.message });
+  }
+});
+
+router.get('/checkAuth', async (req, res) => {
+  const idToken = req.headers.authorization?.split(' ')[1];
+
+  if (!idToken) {
+    return res.status(401).send({ error: 'Token não fornecido' });
+  }
+
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(idToken);
+    const uid = decodedToken.uid;
+
+    // Lógica adicional? Verificar dados adicionais do usuário no Firestore?
+
+    res.status(200).send({ uid });
+  } catch (error) {
+    res.status(401).send({ error: 'Não autenticado' });
+  }
+});
 
 module.exports = router;
