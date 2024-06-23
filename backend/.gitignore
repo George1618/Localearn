@@ -130,4 +130,4 @@ dist
 .pnp.*
 
 # informacao sensivel
-./src/services/serviceAccountKey.json
+#./src/services/serviceAccountKey.json

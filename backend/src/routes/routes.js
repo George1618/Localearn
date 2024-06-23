@@ -7,5 +7,6 @@ router.get("/teste", async (req, res) => {
 });
 
 router.get("/exercicio", controller.getExercicio);
+router.post("/localizacao", controller.updateLocalizacao);
 
 module.exports = router;
