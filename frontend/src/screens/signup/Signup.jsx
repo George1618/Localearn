@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { signup } from "../../services/api";

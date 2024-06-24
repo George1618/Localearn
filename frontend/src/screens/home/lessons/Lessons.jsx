@@ -27,7 +27,7 @@ export default function Lessons() {
         } catch (error) {
             console.error("Failed to fetch lesson:", error);
         }
-    }    
+    }
 
     useEffect(() => {
         // atualiza a data
