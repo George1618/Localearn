@@ -46,7 +46,8 @@ async function getExercicio(req, res) {
             const perguntaSelecionada = selecionarPerguntaAleatoria(perguntasFiltradas);
             res.status(200).send({
                 pergunta: perguntaSelecionada.pergunta,
-                resposta: perguntaSelecionada.resposta
+                resposta: perguntaSelecionada.resposta,
+                categoria: perguntaSelecionada.categoria
             });
         } else {
             res.status(404).send({
