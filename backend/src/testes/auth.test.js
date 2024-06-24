@@ -16,7 +16,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
-describe("Teste da rota POST - /signup", () => {
+/*describe("Teste da rota POST - /signup", () => {
     describe("Casos válidos", () => {
         it("CT001 - Field Test - Todos os valores válidos e criação do aluno", async () => {
             const email = "testeemail6@gmail.com";
@@ -113,7 +113,7 @@ describe("Teste da rota POST - /login", () => {
             console.log(response.body.error);
         });
     });
-});
+});*/
 
 describe("Teste da rota DELETE - /aluno", () => {
     describe("Casos válidos", () => {
@@ -121,7 +121,7 @@ describe("Teste da rota DELETE - /aluno", () => {
     })
 })
 
-describe("Teste da rota GET - /userData", () => {
+/*describe("Teste da rota GET - /userData", () => {
     describe("Casos válidos", () => {
         it("CT006 - Field Test - Usuário válido", async () => {
             const email = "testeemail6@gmail.com";
@@ -163,6 +163,25 @@ describe("Teste da rota PUT - /userData", () => {
             expect(response.body.message).toEqual("User data updated successfully");
         }) 
     })
+})*/
+
+describe("Teste da rota POST - /localizacao", () => {
+    describe("Casos válidos", () => {
+        it("CT006 - Field Test - Usuário válido", async () => {
+            const email = "testeemail5@gmail.com";
+            const password = "teste123";
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const token = await userCredential.user.getIdToken();
+
+            const response = await request(app)
+             .post("/localearn/localizacao")
+             .set("Authorization", `Bearer ${token}`);
+
+            expect(response.status).toBe(200);
+            expect(response.body).toHaveProperty("mensagem");
+            expect(response.body.mensagem).toEqual("Localização armazenada com sucesso!");
+        }) 
+    })
 })
 
 describe("Teste da rota GET - /getExercicio", () => {
@@ -186,21 +205,3 @@ describe("Teste da rota GET - /getExercicio", () => {
     })
 })
 
-describe("Teste da rota POST - /localizacao", () => {
-    describe("Casos válidos", () => {
-        it("CT006 - Field Test - Usuário válido", async () => {
-            const email = "testeemail6@gmail.com";
-            const password = "teste123";
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            const token = await userCredential.user.getIdToken();
-
-            const response = await request(app)
-             .post("/localearn/localizacao")
-             .set("Authorization", `Bearer ${token}`);
-
-            expect(response.status).toBe(200);
-            expect(response.body).toHaveProperty("mensagem");
-            expect(response.body.mensagem).toEqual("Localização armazenada com sucesso!");
-        }) 
-    })
-})

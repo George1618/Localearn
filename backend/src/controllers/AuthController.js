@@ -1,4 +1,4 @@
-const db = require('../firebaseAdmin');
+const admin = require('firebase-admin');
 
 async function signUp(req, res) {
     const { email, password, username, isTeacher } = req.body;

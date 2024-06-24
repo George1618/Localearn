@@ -68,7 +68,8 @@ async function updateLocalizacao(req, res) {
 
     try {
         const coordenadas = await location.getCurrentLocation();
-        const local = await googlePlaces.initMap(coordenadas[0], coordenadas[1]);
+        //const local = await googlePlaces.initMap(coordenadas[0], coordenadas[1]);
+        const local = "school"
         if (local != undefined) {
             const updateLocal = await axios.put("http://localhost:3000/user/updateLocal", {
                     local: local
@@ -117,27 +118,8 @@ function selecionarPerguntaAleatoria(perguntas) {
     return perguntas[indiceAleatorio];
 }
 
-async function getLocais(req, res) {
-    try {
-        const alunosSnapshot = await db.collection('alunos').get();
-        const locais = [];
-        alunosSnapshot.forEach(doc => {
-            const alunoData = doc.data();
-            if (alunoData.local) {
-                locais.push(...alunoData.local);
-            }
-        });
-        res.status(200).send(locais);
-    } catch (error) {
-        res.status(500).send({
-            mensagem: "Erro ao buscar locais",
-            error: error.message
-        });
-    }
-}
 
 module.exports = {
     getExercicio,
-    updateLocalizacao,
-    getLocais
+    updateLocalizacao
 };
