@@ -2,7 +2,9 @@ import axios from 'axios';
 import firebase from './firebaseConfig';
 import 'firebase/auth';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL_AUTH = 'http://localhost:3000/auth';
+const API_URL_USER = 'http://localhost:3000/user';
+const API_URL_LOCALEARN = 'http://localhost:3000/localearn';
 
 export const login = async (email, password) => {
   try {
@@ -10,7 +12,7 @@ export const login = async (email, password) => {
     const token = await userCredential.user.getIdToken();
     console.log('Token JWT:', token); // Pra verificar se o token é exibido corretamente
     
-    const response = await axios.post(`${API_URL}/login`, {}, {
+    const response = await axios.post(`${API_URL_AUTH}/login`, {}, {
       headers: { Authorization: `Bearer ${token}` }
     });
     console.log('Response:', response.data); // Pra verificar se a resposta do backend é recebida corretamente
@@ -23,7 +25,7 @@ export const login = async (email, password) => {
 
 export const signup = async (email, password, username, isTeacher) => {
   try {
-    const response = await axios.post(`${API_URL}/signup`, { email, password, username, isTeacher });
+    const response = await axios.post(`${API_URL_AUTH}/signup`, { email, password, username, isTeacher });
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);
@@ -32,7 +34,7 @@ export const signup = async (email, password, username, isTeacher) => {
 
 export const checkAuth = async (token) => {
   try {
-    const response = await axios.get(`${API_URL}/checkAuth`, {
+    const response = await axios.get(`${API_URL_AUTH}/checkAuth`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     return response.data;
@@ -43,7 +45,7 @@ export const checkAuth = async (token) => {
 
 export const getUserData = async (token) => {
   try {
-    const response = await axios.get(`${API_URL}/userData`, {
+    const response = await axios.get(`${API_URL_USER}/userData`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     return response.data;
@@ -54,7 +56,7 @@ export const getUserData = async (token) => {
 
 export const updateUserData = async (token, userData) => {
   try {
-    const response = await axios.put(`${API_URL}/userData`, userData, {
+    const response = await axios.put(`${API_URL_USER}/userData`, userData, {
       headers: { Authorization: `Bearer ${token}` }
     });
     return response.data;
@@ -65,7 +67,7 @@ export const updateUserData = async (token, userData) => {
 
 export const getExercicio = async () => {
   try {
-    const response = await axios.get(`${API_URL}/exercicio`);
+    const response = await axios.get(`${API_URL_LOCALEARN}/exercicio`);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);

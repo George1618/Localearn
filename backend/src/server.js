@@ -21,8 +21,10 @@ app.use("/localearn", router);
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
 
-app.listen(process.env.PORT, () => {
-    console.log(`Rodando em http://localhost:${process.env.PORT}`);
+const port = process.env.PORT || '3000';
+
+app.listen(port, () => {
+    console.log(`Rodando em http://localhost:${port}`);
 });
 
 module.exports = app;
