@@ -6,18 +6,18 @@ const API_URL = 'http://localhost:5000/api';
 
 export const login = async (email, password) => {
   try {
-    const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
-    const token = await userCredential.user.getIdToken();
-    console.log('Token JWT:', token); // Pra verificar se o token é exibido corretamente
-    
-    const response = await axios.post(`${API_URL}/login`, {}, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    console.log('Response:', response.data); // Pra verificar se a resposta do backend é recebida corretamente
+      const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+      const token = await userCredential.user.getIdToken();
+      console.log('Token JWT:', token);
 
-    return response.data;
+      const response = await axios.post(`${API_URL}/login`, {}, {
+          headers: { Authorization: `Bearer ${token}` }
+      });
+      console.log('Response:', response.data);
+
+      return response.data;
   } catch (error) {
-    throw new Error(error.response?.data?.error || error.message);
+      throw new Error(error.response?.data?.error || error.message);
   }
 };
 
