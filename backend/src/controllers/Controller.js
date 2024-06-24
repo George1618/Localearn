@@ -75,7 +75,7 @@ async function updateLocalizacao(req, res) {
             const local2 = await googlePlaces.initMap(coordenadas2[0], coordenadas2[1]);
             if (local1 == local2) {
                 const updateLocal = await axios.put("http://localhost:3000/user/updateLocal", {
-                    local: local
+                    local: local1
                 }, {
                     headers: {
                         Authorization: `Bearer ${idToken}`
