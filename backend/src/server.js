@@ -11,7 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/localearn", router);
 app.use("/auth", authRouter);
 
-app.listen(process.env.PORT, () => {
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
     console.log(`Rodando em http://localhost:${process.env.PORT}`);
 });
 
