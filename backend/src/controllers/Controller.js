@@ -67,29 +67,32 @@ async function updateLocalizacao(req, res) {
     const idToken = req.headers.authorization.split('Bearer ')[1];
 
     try {
-        const coordenadas = await location.getCurrentLocation();
-        //const local = await googlePlaces.initMap(coordenadas[0], coordenadas[1]);
-        const local = "school"
-        if (local != undefined) {
-            const updateLocal = await axios.put("http://localhost:3000/user/updateLocal", {
+        const coordenadas1 = await location.getCurrentLocation();
+        const local1 = await googlePlaces.initMap(coordenadas1[0], coordenadas1[1]);
+        if (local1 != undefined) {
+            await new Promise(resolve => setTimeout(resolve, 20000));
+            const coordenadas2 = await location.getCurrentLocation();
+            const local2 = await googlePlaces.initMap(coordenadas2[0], coordenadas2[1]);
+            if (local1 == local2) {
+                const updateLocal = await axios.put("http://localhost:3000/user/updateLocal", {
                     local: local
                 }, {
                     headers: {
                         Authorization: `Bearer ${idToken}`
                     }
                 });
-            if (updateLocal.status == 200) {
-                res.status(200).send({
-                    mensagem: "Localização armazenada com sucesso!"
-                });
+                if (updateLocal.status == 200) {
+                    res.status(200).send({
+                        mensagem: "Localização armazenada com sucesso!"
+                    });
+                }
+                else {
+                    res.status(updateLocal.status).send({
+                        mensagem: updateLocal.message
+                    });
+                }
             }
-            else {
-                res.status(updateLocal.status).send({
-                    mensagem: updateLocal.message
-                });
-            }
-        }
-        else {
+        } else {
             res.status(200).send({
                 mensagem: "Localização indefinida."
             });
