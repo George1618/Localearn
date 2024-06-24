@@ -72,7 +72,6 @@ async function checkAuth(req, res) {
 
         // Lógica adicional? Verificar dados adicionais do usuário no Firestore?
 
-        res.status(200).send({ uid });
     } catch (error) {
         res.status(401).send({ error: 'Não autenticado' });
     }
