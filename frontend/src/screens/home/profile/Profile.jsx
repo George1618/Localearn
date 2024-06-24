@@ -6,7 +6,7 @@ import ActionButton from "../../../components/ActionButton";
 
 import strings from "../../../assets/strings";
 import StyledText from "../../../components/StyledText";
-import AuthContext from "../../../contexts/auth";
+import AuthContext from "../../../contexts/AuthContext";
 import styles from "../../../assets/styles";
 
 import { getUserData, updateUserData } from "../../../services/api";

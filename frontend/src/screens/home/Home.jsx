@@ -10,7 +10,7 @@ import Locations from './locations/Locations';
 
 import strings from '../../assets/strings';
 import Header from './header/Header';
-import AuthContext from '../../contexts/auth';
+import AuthContext from '../../contexts/AuthContext';
 import { auth } from '../../services/firebaseConfig';
 import styles from '../../assets/styles';
 import LessonsTeacher from './lessons/LessonsTeacher';
