@@ -1,50 +1,2039 @@
 [
     {
-        "pergunta": "Can I have the menu, please?",
-        "local": "restaurant",
-        "resposta": "Pode me dar o menu, por favor?",
-        "nivel": 1
-    },
-    {
-        "pergunta": "I would like to order",
-        "local": "restaurant",
-        "resposta": "Eu gostaria de pedir",
-        "nivel": 1
-    },
-    {
-        "pergunta": "A cup of tea, please",
-        "local": "restaurant",
-        "resposta": "Um copo de chá, por favor",
-        "nivel": 1
-    },
-    {
-        "pergunta": "You need a reservation sir",
-        "local": "restaurant",
-        "resposta": "Você precisa de uma reserva senhor",
-        "nivel": 1
-    },
-    {
-        "pergunta": "A table for two",
-        "local": "restaurant",
-        "resposta": "Uma mesa para dois",
-        "nivel": 1
-    },
-    {
-        "pergunta": "What is the next period?",
-        "local": "school",
-        "resposta": "Qual é a próxima aula?",
-        "nivel": 1
-    },
-    {
-        "pergunta": "I'm in the fifth grade",
-        "local": "school",
-        "resposta": "Eu estou no quinto ano",
-        "nivel": 1
-    },
-    {
-        "pergunta": "Can you spot me?",
+        "pergunta": "What are your fitness goals?",
         "local": "gym",
-        "resposta": "Pode me asdasdasdadsad",
-        "nivel": 1
+        "resposta": "Quais são seus objetivos de fitness?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The workout was extremely challenging.",
+        "local": "gym",
+        "resposta": "O treino foi extremamente desafiador.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She can lift much heavier weights now.",
+        "local": "gym",
+        "resposta": "Ela pode levantar pesos muito mais pesados agora.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He runs slightly faster than before.",
+        "local": "gym",
+        "resposta": "Ele corre um pouco mais rápido do que antes.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The treadmill is next to the weights section.",
+        "local": "gym",
+        "resposta": "A esteira está ao lado da seção de pesos.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The water bottle is under the bench.",
+        "local": "gym",
+        "resposta": "A garrafa de água está embaixo do banco.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The yoga mats are in the corner.",
+        "local": "gym",
+        "resposta": "Os tapetes de yoga estão no canto.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "We usually exercise in the morning.",
+        "local": "gym",
+        "resposta": "Nós geralmente nos exercitamos de manhã.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The gym closes at 10 PM.",
+        "local": "gym",
+        "resposta": "A academia fecha às 22h.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She has a class from 6 PM to 7 PM.",
+        "local": "gym",
+        "resposta": "Ela tem uma aula das 18h às 19h.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "He always stretches before workouts.",
+        "local": "gym",
+        "resposta": "Ele sempre se alonga antes dos treinos.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She often goes to the gym.",
+        "local": "gym",
+        "resposta": "Ela frequentemente vai à academia.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "They rarely miss a session.",
+        "local": "gym",
+        "resposta": "Eles raramente perdem uma sessão.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He gave up smoking to improve his health.",
+        "local": "gym",
+        "resposta": "Ele desistiu de fumar para melhorar sua saúde.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She works out every day.",
+        "local": "gym",
+        "resposta": "Ela se exercita todos os dias.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They warmed up before starting the exercise.",
+        "local": "gym",
+        "resposta": "Eles se aqueceram antes de começar o exercício.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "What is your favorite activity to do in the park?",
+        "local": "park",
+        "resposta": "Qual é a sua atividade favorita para fazer no parque?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "Where do you usually go for a walk?",
+        "local": "park",
+        "resposta": "Onde você costuma ir para uma caminhada?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "What time do you usually visit the park?",
+        "local": "park",
+        "resposta": "A que horas você costuma visitar o parque?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The weather is very hot today.",
+        "local": "park",
+        "resposta": "O tempo está muito quente hoje.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "There are so many trees in this park.",
+        "local": "park",
+        "resposta": "Há tantas árvores neste parque.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She walks quite slowly.",
+        "local": "park",
+        "resposta": "Ela caminha bastante devagar.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The bench is next to the fountain.",
+        "local": "park",
+        "resposta": "O banco está ao lado da fonte.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The playground is behind the trees.",
+        "local": "park",
+        "resposta": "O playground está atrás das árvores.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The picnic area is near the lake.",
+        "local": "park",
+        "resposta": "A área de picnic está perto do lago.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "We usually come to the park in the morning.",
+        "local": "park",
+        "resposta": "Nós geralmente vimos ao parque de manhã.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The park opens at 7 AM.",
+        "local": "park",
+        "resposta": "O parque abre às 7h.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She walks her dog every evening.",
+        "local": "park",
+        "resposta": "Ela passeia com o cachorro todas as noites.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They always go for a run in the park.",
+        "local": "park",
+        "resposta": "Eles sempre correm no parque.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She often brings her kids to the park.",
+        "local": "park",
+        "resposta": "Ela frequentemente traz seus filhos para o parque.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "They rarely have a picnic in this park.",
+        "local": "park",
+        "resposta": "Eles raramente fazem um piquenique neste parque.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He gave up smoking to improve his health.",
+        "local": "park",
+        "resposta": "Ele desistiu de fumar para melhorar sua saúde.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She enjoys reading books under the shade.",
+        "local": "park",
+        "resposta": "Ela gosta de ler livros à sombra.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They packed up their belongings after the picnic.",
+        "local": "park",
+        "resposta": "Eles arrumaram suas coisas após o piquenique.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "What subjects do you study at school?",
+        "local": "school",
+        "resposta": "Quais disciplinas você estuda na escola?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "Where is your classroom located?",
+        "local": "school",
+        "resposta": "Onde fica sua sala de aula?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When do you have lunch break?",
+        "local": "school",
+        "resposta": "Quando você tem intervalo para o almoço?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The math test was extremely difficult.",
+        "local": "school",
+        "resposta": "A prova de matemática foi extremamente difícil.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She understands the lesson quite well.",
+        "local": "school",
+        "resposta": "Ela entende a lição bastante bem.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He studies very hard for his exams.",
+        "local": "school",
+        "resposta": "Ele estuda muito para suas provas.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The library is next to the gymnasium.",
+        "local": "school",
+        "resposta": "A biblioteca está ao lado do ginásio.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The playground is in front of the cafeteria.",
+        "local": "school",
+        "resposta": "O playground está na frente da cantina.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The principal's office is on the second floor.",
+        "local": "school",
+        "resposta": "O escritório da diretoria fica no segundo andar.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "We usually have science class in the morning.",
+        "local": "school",
+        "resposta": "Nós geralmente temos aula de ciências de manhã.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The school day starts at 8 AM.",
+        "local": "school",
+        "resposta": "O dia escolar começa às 8h.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She has art class on Tuesdays and Thursdays.",
+        "local": "school",
+        "resposta": "Ela tem aula de arte às terças e quintas-feiras.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "He always listens attentively during class.",
+        "local": "school",
+        "resposta": "Ele sempre ouve atentamente durante a aula.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She often participates in extracurricular activities.",
+        "local": "school",
+        "resposta": "Ela frequentemente participa de atividades extracurriculares.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "They rarely miss school events.",
+        "local": "school",
+        "resposta": "Eles raramente faltam aos eventos da escola.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He gave up playing video games to focus on studying.",
+        "local": "school",
+        "resposta": "Ele desistiu de jogar videogame para focar nos estudos.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She enjoys reading books in the school library.",
+        "local": "school",
+        "resposta": "Ela gosta de ler livros na biblioteca da escola.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They cleaned up the classroom after the science experiment.",
+        "local": "school",
+        "resposta": "Eles arrumaram a sala após o experimento de ciências.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "What is your favorite dish at this restaurant?",
+        "local": "restaurant",
+        "resposta": "Qual é o seu prato favorito neste restaurante?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "Where is the restroom located?",
+        "local": "restaurant",
+        "resposta": "Onde fica o banheiro?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When does the restaurant close?",
+        "local": "restaurant",
+        "resposta": "Quando o restaurante fecha?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The pasta was extremely delicious.",
+        "local": "restaurant",
+        "resposta": "A massa estava extremamente deliciosa.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She eats quite slowly.",
+        "local": "restaurant",
+        "resposta": "Ela come bastante devagar.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He orders very spicy food.",
+        "local": "restaurant",
+        "resposta": "Ele pede comida muito apimentada.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The table is next to the window.",
+        "local": "restaurant",
+        "resposta": "A mesa está ao lado da janela.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The bar is behind the main dining area.",
+        "local": "restaurant",
+        "resposta": "O bar está atrás da área principal de jantar.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The entrance is near the parking lot.",
+        "local": "restaurant",
+        "resposta": "A entrada está perto do estacionamento.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "We usually dine out in the evening.",
+        "local": "restaurant",
+        "resposta": "Nós geralmente jantamos fora à noite.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The restaurant opens at 5 PM.",
+        "local": "restaurant",
+        "resposta": "O restaurante abre às 17h.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She has lunch at this restaurant every Friday.",
+        "local": "restaurant",
+        "resposta": "Ela almoça neste restaurante toda sexta-feira.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They always order dessert after dinner.",
+        "local": "restaurant",
+        "resposta": "Eles sempre pedem sobremesa depois do jantar.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She often tries new dishes when dining out.",
+        "local": "restaurant",
+        "resposta": "Ela frequentemente experimenta pratos novos ao sair para comer.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "They rarely eat at expensive restaurants.",
+        "local": "restaurant",
+        "resposta": "Eles raramente comem em restaurantes caros.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He gave up eating fast food to improve his health.",
+        "local": "restaurant",
+        "resposta": "Ele desistiu de comer fast food para melhorar sua saúde.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She enjoys dining with friends at this restaurant.",
+        "local": "restaurant",
+        "resposta": "Ela gosta de jantar com amigos neste restaurante.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They cleaned up the table after finishing their meal.",
+        "local": "restaurant",
+        "resposta": "Eles arrumaram a mesa depois de terminar a refeição.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "What symptoms are you experiencing?",
+        "local": "doctor",
+        "resposta": "Quais sintomas você está sentindo?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "Where does it hurt?",
+        "local": "doctor",
+        "resposta": "Onde está doendo?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When did you first notice these symptoms?",
+        "local": "doctor",
+        "resposta": "Quando você percebeu esses sintomas pela primeira vez?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "Her headache was extremely severe.",
+        "local": "doctor",
+        "resposta": "A dor de cabeça dela estava extremamente severa.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He takes quite a lot of medication.",
+        "local": "doctor",
+        "resposta": "Ele toma bastante medicamento.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She follows a very strict diet.",
+        "local": "doctor",
+        "resposta": "Ela segue uma dieta muito rigorosa.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The waiting room is next to the reception desk.",
+        "local": "doctor",
+        "resposta": "A sala de espera está ao lado da recepção.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The examination room is across from the nurse's station.",
+        "local": "doctor",
+        "resposta": "A sala de exames está em frente à estação de enfermagem.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The pharmacy is on the ground floor.",
+        "local": "doctor",
+        "resposta": "A farmácia fica no térreo.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "We usually schedule our appointments in the afternoon.",
+        "local": "doctor",
+        "resposta": "Nós geralmente marcamos nossas consultas à tarde.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The doctor's office opens at 9 AM.",
+        "local": "doctor",
+        "resposta": "O consultório do médico abre às 9h.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She has a check-up every six months.",
+        "local": "doctor",
+        "resposta": "Ela faz um check-up a cada seis meses.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "He always listens carefully to his patients.",
+        "local": "doctor",
+        "resposta": "Ele sempre ouve cuidadosamente seus pacientes.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She often recommends exercise for better health.",
+        "local": "doctor",
+        "resposta": "Ela frequentemente recomenda exercício para melhorar a saúde.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "They rarely prescribe antibiotics unless necessary.",
+        "local": "doctor",
+        "resposta": "Eles raramente receitam antibióticos a menos que seja necessário.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He gave up smoking to improve his lung function.",
+        "local": "doctor",
+        "resposta": "Ele parou de fumar para melhorar a função pulmonar.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She needs to follow the prescribed treatment plan.",
+        "local": "doctor",
+        "resposta": "Ela precisa seguir o plano de tratamento prescrito.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They checked in at the reception desk before seeing the doctor.",
+        "local": "doctor",
+        "resposta": "Eles fizeram check-in na recepção antes de ver o médico.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "What time does the movie start?",
+        "local": "movie_theater",
+        "resposta": "A que horas o filme começa?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "Where is the concession stand?",
+        "local": "movie_theater",
+        "resposta": "Onde fica o balcão de lanches?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When does the next show begin?",
+        "local": "movie_theater",
+        "resposta": "Quando começa a próxima sessão?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The movie was incredibly exciting.",
+        "local": "movie_theater",
+        "resposta": "O filme foi incrivelmente emocionante.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She always watches movies in 3D.",
+        "local": "movie_theater",
+        "resposta": "Ela sempre assiste filmes em 3D.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He rarely misses the opening night of a blockbuster.",
+        "local": "movie_theater",
+        "resposta": "Ele raramente perde a estreia de um filme de sucesso.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The seats are in front of the screen.",
+        "local": "movie_theater",
+        "resposta": "Os assentos estão na frente da tela.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The restrooms are next to the exit.",
+        "local": "movie_theater",
+        "resposta": "Os banheiros estão ao lado da saída.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The ticket booth is at the entrance.",
+        "local": "movie_theater",
+        "resposta": "A bilheteria está na entrada.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "We usually watch movies on weekends.",
+        "local": "movie_theater",
+        "resposta": "Nós geralmente assistimos filmes nos finais de semana.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The theater opens half an hour before the first show.",
+        "local": "movie_theater",
+        "resposta": "O cinema abre meia hora antes da primeira sessão.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She buys popcorn every time she goes to the movies.",
+        "local": "movie_theater",
+        "resposta": "Ela compra pipoca toda vez que vai ao cinema.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They rarely go to the movies on weekdays.",
+        "local": "movie_theater",
+        "resposta": "Eles raramente vão ao cinema durante a semana.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He often watches movies with subtitles.",
+        "local": "movie_theater",
+        "resposta": "Ele frequentemente assiste filmes com legendas.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She always sits in the back row.",
+        "local": "movie_theater",
+        "resposta": "Ela sempre senta na última fileira.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He ended up falling asleep during the movie.",
+        "local": "movie_theater",
+        "resposta": "Ele acabou dormindo durante o filme.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She looks forward to going to the movies every weekend.",
+        "local": "movie_theater",
+        "resposta": "Ela está ansiosa para ir ao cinema todo final de semana.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They need to pick up their tickets at the box office.",
+        "local": "movie_theater",
+        "resposta": "Eles precisam pegar seus ingressos na bilheteria.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "Where is the departure gate for flight UA123?",
+        "local": "airport",
+        "resposta": "Onde fica o portão de embarque para o voo UA123?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "What time does boarding begin?",
+        "local": "airport",
+        "resposta": "A que horas começa o embarque?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When is the next flight to London?",
+        "local": "airport",
+        "resposta": "Quando é o próximo voo para Londres?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The flight was surprisingly smooth.",
+        "local": "airport",
+        "resposta": "O voo foi surpreendentemente tranquilo.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She always packs light when traveling.",
+        "local": "airport",
+        "resposta": "Ela sempre faz as malas com pouca bagagem quando viaja.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He rarely flies business class.",
+        "local": "airport",
+        "resposta": "Ele raramente voa em classe executiva.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The security check is before the boarding gates.",
+        "local": "airport",
+        "resposta": "A inspeção de segurança é antes dos portões de embarque.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The baggage claim area is on the lower level.",
+        "local": "airport",
+        "resposta": "A área de retirada de bagagem fica no nível inferior.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The check-in counter is at the entrance.",
+        "local": "airport",
+        "resposta": "O balcão de check-in está na entrada.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "They usually arrive at the airport two hours before the flight.",
+        "local": "airport",
+        "resposta": "Eles geralmente chegam ao aeroporto duas horas antes do voo.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The boarding process begins 30 minutes before departure.",
+        "local": "airport",
+        "resposta": "O processo de embarque começa 30 minutos antes da partida.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She always checks her luggage before boarding.",
+        "local": "airport",
+        "resposta": "Ela sempre verifica sua bagagem antes do embarque.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They rarely travel internationally.",
+        "local": "airport",
+        "resposta": "Eles raramente viajam internacionalmente.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He often flies first class for business trips.",
+        "local": "airport",
+        "resposta": "Ele frequentemente voa em primeira classe em viagens de negócios.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She always arrives early at the airport.",
+        "local": "airport",
+        "resposta": "Ela sempre chega cedo ao aeroporto.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He ended up missing his connecting flight.",
+        "local": "airport",
+        "resposta": "Ele acabou perdendo seu voo de conexão.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She needs to pick up her boarding pass at the check-in counter.",
+        "local": "airport",
+        "resposta": "Ela precisa pegar seu cartão de embarque no balcão de check-in.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They checked in online before arriving at the airport.",
+        "local": "airport",
+        "resposta": "Eles fizeram check-in online antes de chegar ao aeroporto.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "Do you have any allergy medication?",
+        "local": "pharmacy",
+        "resposta": "Você tem algum medicamento para alergia?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "Where can I find pain relievers?",
+        "local": "pharmacy",
+        "resposta": "Onde posso encontrar analgésicos?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When does the pharmacy close today?",
+        "local": "pharmacy",
+        "resposta": "Quando a farmácia fecha hoje?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The pharmacist was extremely helpful.",
+        "local": "pharmacy",
+        "resposta": "O farmacêutico foi extremamente prestativo.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She always buys vitamins from this pharmacy.",
+        "local": "pharmacy",
+        "resposta": "Ela sempre compra vitaminas desta farmácia.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He rarely visits the pharmacy without a prescription.",
+        "local": "pharmacy",
+        "resposta": "Ele raramente visita a farmácia sem receita médica.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The pain relievers are on aisle 3.",
+        "local": "pharmacy",
+        "resposta": "Os analgésicos estão no corredor 3.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The allergy medications are behind the counter.",
+        "local": "pharmacy",
+        "resposta": "Os medicamentos para alergia estão atrás do balcão.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The vitamins are next to the entrance.",
+        "local": "pharmacy",
+        "resposta": "As vitaminas estão ao lado da entrada.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "They usually open at 8 AM.",
+        "local": "pharmacy",
+        "resposta": "Eles geralmente abrem às 8h.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The pharmacy closes at 10 PM.",
+        "local": "pharmacy",
+        "resposta": "A farmácia fecha às 22h.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She always picks up her prescriptions on Mondays.",
+        "local": "pharmacy",
+        "resposta": "Ela sempre retira suas receitas médicas às segundas-feiras.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They rarely forget to refill their medications.",
+        "local": "pharmacy",
+        "resposta": "Eles raramente esquecem de renovar suas medicações.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He often buys over-the-counter medications.",
+        "local": "pharmacy",
+        "resposta": "Ele frequentemente compra medicamentos sem receita.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She always asks the pharmacist for advice.",
+        "local": "pharmacy",
+        "resposta": "Ela sempre pede conselhos ao farmacêutico.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He ended up buying more than he needed.",
+        "local": "pharmacy",
+        "resposta": "Ele acabou comprando mais do que precisava.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She needs to pick up her prescription at the pharmacy.",
+        "local": "pharmacy",
+        "resposta": "Ela precisa retirar sua receita na farmácia.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They checked the expiration date before buying the medication.",
+        "local": "pharmacy",
+        "resposta": "Eles verificaram a data de validade antes de comprar o medicamento.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "Which building is the biology department located in?",
+        "local": "university",
+        "resposta": "Em qual prédio está localizado o departamento de biologia?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When is the deadline for submitting the research proposal?",
+        "local": "university",
+        "resposta": "Qual é o prazo para enviar a proposta de pesquisa?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "What time does the library close during finals week?",
+        "local": "university",
+        "resposta": "A que horas a biblioteca fecha durante a semana de provas?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The professor was extremely knowledgeable.",
+        "local": "university",
+        "resposta": "O professor era extremamente conhecedor.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She always attends lectures on time.",
+        "local": "university",
+        "resposta": "Ela sempre assiste às aulas no horário.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He rarely misses class.",
+        "local": "university",
+        "resposta": "Ele raramente falta às aulas.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The chemistry lab is on the second floor.",
+        "local": "university",
+        "resposta": "O laboratório de química fica no segundo andar.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The cafeteria is across from the main entrance.",
+        "local": "university",
+        "resposta": "A cafeteria fica em frente à entrada principal.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The administration office is next to the bookstore.",
+        "local": "university",
+        "resposta": "O escritório da administração fica ao lado da livraria.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "They usually study in the library after classes.",
+        "local": "university",
+        "resposta": "Eles geralmente estudam na biblioteca após as aulas.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The university closes at 6 PM on weekdays.",
+        "local": "university",
+        "resposta": "A universidade fecha às 18h nos dias úteis.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She always reviews her notes before exams.",
+        "local": "university",
+        "resposta": "Ela sempre revisa suas anotações antes das provas.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They rarely skip lectures.",
+        "local": "university",
+        "resposta": "Eles raramente faltam às palestras.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He often participates in campus activities.",
+        "local": "university",
+        "resposta": "Ele frequentemente participa de atividades no campus.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She always arrives early for seminars.",
+        "local": "university",
+        "resposta": "Ela sempre chega cedo para os seminários.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He ended up majoring in computer science.",
+        "local": "university",
+        "resposta": "Ele acabou se formando em ciência da computação.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She needs to register for next semester's classes.",
+        "local": "university",
+        "resposta": "Ela precisa se matricular nas aulas do próximo semestre.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They checked the course requirements before enrolling.",
+        "local": "university",
+        "resposta": "Eles verificaram os requisitos do curso antes de se matricular.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "Which exhibit features ancient artifacts?",
+        "local": "museum",
+        "resposta": "Qual exposição apresenta artefatos antigos?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When was this painting created?",
+        "local": "museum",
+        "resposta": "Quando essa pintura foi criada?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "What time does the museum close today?",
+        "local": "museum",
+        "resposta": "A que horas o museu fecha hoje?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The sculpture is extremely detailed.",
+        "local": "museum",
+        "resposta": "A escultura é extremamente detalhada.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She always admires the modern art section.",
+        "local": "museum",
+        "resposta": "Ela sempre admira a seção de arte moderna.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He rarely visits the special exhibits.",
+        "local": "museum",
+        "resposta": "Ele raramente visita as exposições especiais.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The dinosaur skeleton is in the main hall.",
+        "local": "museum",
+        "resposta": "O esqueleto de dinossauro está no hall principal.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The ancient artifacts are behind glass displays.",
+        "local": "museum",
+        "resposta": "Os artefatos antigos estão atrás de vitrines.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The Egyptian exhibit is next to the entrance.",
+        "local": "museum",
+        "resposta": "A exposição egípcia está ao lado da entrada.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "They usually visit the museum on weekends.",
+        "local": "museum",
+        "resposta": "Eles geralmente visitam o museu nos fins de semana.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The museum closes at 5 PM on weekdays.",
+        "local": "museum",
+        "resposta": "O museu fecha às 17h nos dias úteis.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She always attends museum lectures.",
+        "local": "museum",
+        "resposta": "Ela sempre participa das palestras no museu.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They rarely miss museum exhibitions.",
+        "local": "museum",
+        "resposta": "Eles raramente perdem as exposições do museu.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He often learns about art history at the museum.",
+        "local": "museum",
+        "resposta": "Ele frequentemente aprende sobre história da arte no museu.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She always takes photos of sculptures.",
+        "local": "museum",
+        "resposta": "Ela sempre tira fotos de esculturas.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He ended up buying a book about museum exhibits.",
+        "local": "museum",
+        "resposta": "Ele acabou comprando um livro sobre exposições de museu.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She needs to return the audio guide to the museum.",
+        "local": "museum",
+        "resposta": "Ela precisa devolver o guia de áudio ao museu.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They checked the museum hours before visiting.",
+        "local": "museum",
+        "resposta": "Eles verificaram o horário do museu antes de visitar.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "Which saint is depicted in the stained glass window?",
+        "local": "church",
+        "resposta": "Qual santo está representado na janela de vitral?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When was this church built?",
+        "local": "church",
+        "resposta": "Quando esta igreja foi construída?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "What time does the church service start on Sundays?",
+        "local": "church",
+        "resposta": "A que horas começa o culto na igreja aos domingos?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The altar is beautifully adorned.",
+        "local": "church",
+        "resposta": "O altar está lindamente adornado.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She always lights a candle before praying.",
+        "local": "church",
+        "resposta": "Ela sempre acende uma vela antes de orar.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He rarely misses Sunday Mass.",
+        "local": "church",
+        "resposta": "Ele raramente falta à missa de domingo.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The baptismal font is near the entrance.",
+        "local": "church",
+        "resposta": "A pia batismal está perto da entrada.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The confessional is located in the back of the church.",
+        "local": "church",
+        "resposta": "O confessionário está localizado no fundo da igreja.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The choir sings during the evening service.",
+        "local": "church",
+        "resposta": "O coro canta durante o culto vespertino.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "They usually attend church on religious holidays.",
+        "local": "church",
+        "resposta": "Eles geralmente frequentam a igreja em feriados religiosos.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The church closes at 8 PM every day.",
+        "local": "church",
+        "resposta": "A igreja fecha às 20h todos os dias.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She always volunteers to help with church events.",
+        "local": "church",
+        "resposta": "Ela sempre se voluntaria para ajudar nos eventos da igreja.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They rarely arrive late for church services.",
+        "local": "church",
+        "resposta": "Eles raramente chegam atrasados para os serviços da igreja.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He often sings in the church choir.",
+        "local": "church",
+        "resposta": "Ele frequentemente canta no coro da igreja.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She always brings flowers to decorate the church altar.",
+        "local": "church",
+        "resposta": "Ela sempre traz flores para decorar o altar da igreja.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He ended up donating money to the church renovation fund.",
+        "local": "church",
+        "resposta": "Ele acabou doando dinheiro para o fundo de reforma da igreja.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She needs to organize the church bake sale.",
+        "local": "church",
+        "resposta": "Ela precisa organizar a venda de bolos da igreja.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They checked the church bulletin for upcoming events.",
+        "local": "church",
+        "resposta": "Eles verificaram o boletim da igreja para eventos futuros.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "Which animal species are native to this region?",
+        "local": "zoo",
+        "resposta": "Quais espécies de animais são nativas desta região?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When was this zoo established?",
+        "local": "zoo",
+        "resposta": "Quando este zoológico foi estabelecido?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "What time are the animal feeding sessions?",
+        "local": "zoo",
+        "resposta": "A que horas são as sessões de alimentação dos animais?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The lion enclosure is quite spacious.",
+        "local": "zoo",
+        "resposta": "O recinto dos leões é bastante espaçoso.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She always enjoys watching the dolphin show.",
+        "local": "zoo",
+        "resposta": "Ela sempre gosta de assistir ao show dos golfinhos.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He rarely visits the reptile house.",
+        "local": "zoo",
+        "resposta": "Ele raramente visita a casa dos répteis.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The monkey exhibit is near the zoo entrance.",
+        "local": "zoo",
+        "resposta": "A exposição dos macacos está perto da entrada do zoológico.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The penguin enclosure is behind the aquarium.",
+        "local": "zoo",
+        "resposta": "O recinto dos pinguins está atrás do aquário.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The giraffes can be found next to the savannah exhibit.",
+        "local": "zoo",
+        "resposta": "As girafas podem ser encontradas ao lado da exposição da savana.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "They usually visit the zoo during the weekends.",
+        "local": "zoo",
+        "resposta": "Eles geralmente visitam o zoológico nos fins de semana.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "The zoo closes at 6 PM every day.",
+        "local": "zoo",
+        "resposta": "O zoológico fecha às 18h todos os dias.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She always volunteers to guide zoo tours.",
+        "local": "zoo",
+        "resposta": "Ela sempre se voluntaria para guiar tours no zoológico.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They rarely miss the zookeeper presentations.",
+        "local": "zoo",
+        "resposta": "Eles raramente perdem as apresentações dos tratadores do zoológico.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He often observes the tigers during feeding time.",
+        "local": "zoo",
+        "resposta": "Ele frequentemente observa os tigres durante a hora da alimentação.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She always takes photos of the elephants.",
+        "local": "zoo",
+        "resposta": "Ela sempre tira fotos dos elefantes.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He ended up adopting a zoo animal.",
+        "local": "zoo",
+        "resposta": "Ele acabou adotando um animal do zoológico.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She needs to organize the zoo fundraiser.",
+        "local": "zoo",
+        "resposta": "Ela precisa organizar a arrecadação de fundos para o zoológico.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They checked the zoo website for upcoming events.",
+        "local": "zoo",
+        "resposta": "Eles verificaram o site do zoológico para eventos futuros.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "Which team won the last championship?",
+        "local": "stadium",
+        "resposta": "Qual time ganhou o último campeonato?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When was this stadium built?",
+        "local": "stadium",
+        "resposta": "Quando este estádio foi construído?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "What time does the match start?",
+        "local": "stadium",
+        "resposta": "A que horas começa o jogo?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "The home team played exceptionally well.",
+        "local": "stadium",
+        "resposta": "O time da casa jogou excepcionalmente bem.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She hardly ever misses a match.",
+        "local": "stadium",
+        "resposta": "Ela quase nunca perde um jogo.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He always cheers loudly for his favorite team.",
+        "local": "stadium",
+        "resposta": "Ele sempre torce alto para seu time favorito.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The away team scored near the end of the match.",
+        "local": "stadium",
+        "resposta": "O time visitante marcou perto do final do jogo.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The spectators are seated behind the goalposts.",
+        "local": "stadium",
+        "resposta": "Os espectadores estão sentados atrás dos postes de gol.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The commentator's booth is above the VIP section.",
+        "local": "stadium",
+        "resposta": "A cabine do comentarista está acima da seção VIP.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The match usually starts at 7 PM.",
+        "local": "stadium",
+        "resposta": "O jogo geralmente começa às 19h.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They arrived at the stadium an hour before kickoff.",
+        "local": "stadium",
+        "resposta": "Eles chegaram ao estádio uma hora antes do início do jogo.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She often attends matches with her friends.",
+        "local": "stadium",
+        "resposta": "Ela frequentemente assiste aos jogos com seus amigos.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "He seldom buys tickets for big matches.",
+        "local": "stadium",
+        "resposta": "Ele raramente compra ingressos para grandes jogos.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She always celebrates when her team scores.",
+        "local": "stadium",
+        "resposta": "Ela sempre comemora quando seu time marca um gol.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "They hardly ever watch matches on TV.",
+        "local": "stadium",
+        "resposta": "Eles quase nunca assistem a jogos na TV.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He gave up cheering for the opposing team.",
+        "local": "stadium",
+        "resposta": "Ele desistiu de torcer pelo time adversário.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She needs to organize the stadium event schedule.",
+        "local": "stadium",
+        "resposta": "Ela precisa organizar o calendário de eventos do estádio.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They checked the stadium website for parking information.",
+        "local": "stadium",
+        "resposta": "Eles verificaram o site do estádio para informações de estacionamento.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "Which platform does the train to London depart from?",
+        "local": "train_station",
+        "resposta": "De qual plataforma parte o trem para Londres?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "When does the next train arrive?",
+        "local": "train_station",
+        "resposta": "Quando chega o próximo trem?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "What time does the train to Manchester leave?",
+        "local": "train_station",
+        "resposta": "A que horas parte o trem para Manchester?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "She really enjoys traveling by train.",
+        "local": "train_station",
+        "resposta": "Ela realmente gosta de viajar de trem.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He usually takes the express train to work.",
+        "local": "train_station",
+        "resposta": "Ele geralmente pega o trem expresso para o trabalho.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "They rarely miss their morning train.",
+        "local": "train_station",
+        "resposta": "Eles raramente perdem o trem da manhã deles.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The train to Edinburgh departs from platform 4.",
+        "local": "train_station",
+        "resposta": "O trem para Edimburgo parte da plataforma 4.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The waiting area is located near the ticket counter.",
+        "local": "train_station",
+        "resposta": "A área de espera está localizada perto do guichê de bilhetes.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "She stood next to the train schedule board.",
+        "local": "train_station",
+        "resposta": "Ela ficou ao lado do quadro de horários dos trens.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "The train departs at 6 PM sharp.",
+        "local": "train_station",
+        "resposta": "O trem parte às 18h em ponto.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "Passengers should arrive at least 30 minutes before departure.",
+        "local": "train_station",
+        "resposta": "Os passageiros devem chegar pelo menos 30 minutos antes da partida.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "He rarely travels during rush hour.",
+        "local": "train_station",
+        "resposta": "Ele raramente viaja durante o horário de pico.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She always checks the train schedule online.",
+        "local": "train_station",
+        "resposta": "Ela sempre verifica o horário dos trens online.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "They seldom travel by train on weekends.",
+        "local": "train_station",
+        "resposta": "Eles raramente viajam de trem nos fins de semana.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He hardly ever misses his train.",
+        "local": "train_station",
+        "resposta": "Ele quase nunca perde o trem dele.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "They ran into each other at the train station.",
+        "local": "train_station",
+        "resposta": "Eles se encontraram na estação de trem.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She needs to pick up her ticket at the train station.",
+        "local": "train_station",
+        "resposta": "Ela precisa pegar seu bilhete na estação de trem.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "He usually boards the train at the first stop.",
+        "local": "train_station",
+        "resposta": "Ele geralmente embarca no trem na primeira parada.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "What's your favorite coffee drink?",
+        "local": "cafe",
+        "resposta": "Qual é a sua bebida de café favorita?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "Do you prefer hot or iced coffee?",
+        "local": "cafe",
+        "resposta": "Você prefere café quente ou gelado?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "Would you like some milk in your coffee?",
+        "local": "cafe",
+        "resposta": "Você gostaria de leite no seu café?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "She always orders a large cappuccino.",
+        "local": "cafe",
+        "resposta": "Ela sempre pede um cappuccino grande.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He usually drinks two cups of coffee in the morning.",
+        "local": "cafe",
+        "resposta": "Ele geralmente bebe duas xícaras de café de manhã.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "They rarely order dessert with their coffee.",
+        "local": "cafe",
+        "resposta": "Eles raramente pedem sobremesa com o café deles.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The best seats are by the window.",
+        "local": "cafe",
+        "resposta": "Os melhores lugares são perto da janela.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "He likes to sit at the counter near the barista.",
+        "local": "cafe",
+        "resposta": "Ele gosta de sentar no balcão perto do barista.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "She stood in line at the cafe for her morning coffee.",
+        "local": "cafe",
+        "resposta": "Ela ficou na fila no café para o café da manhã dela.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "He likes to start his day with a strong espresso.",
+        "local": "cafe",
+        "resposta": "Ele gosta de começar o dia com um espresso forte.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She always adds sugar to her coffee.",
+        "local": "cafe",
+        "resposta": "Ela sempre adiciona açúcar ao café dela.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "They usually meet at their favorite cafe on Sundays.",
+        "local": "cafe",
+        "resposta": "Eles geralmente se encontram no café favorito deles aos domingos.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She always checks the menu before ordering.",
+        "local": "cafe",
+        "resposta": "Ela sempre verifica o cardápio antes de pedir.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He seldom drinks coffee in the afternoon.",
+        "local": "cafe",
+        "resposta": "Ele raramente bebe café à tarde.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "They never miss their morning coffee ritual.",
+        "local": "cafe",
+        "resposta": "Eles nunca perdem o ritual do café da manhã deles.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She sat down to enjoy her coffee before work.",
+        "local": "cafe",
+        "resposta": "Ela sentou para aproveitar o café antes do trabalho.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "He always meets his friends at the cafe after class.",
+        "local": "cafe",
+        "resposta": "Ele sempre encontra os amigos no café depois da aula.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They planned to visit the cafe later in the afternoon.",
+        "local": "cafe",
+        "resposta": "Eles planejaram visitar o café mais tarde à tarde.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "He's going to look after the cafe while the owner is away.",
+        "local": "cafe",
+        "resposta": "Ele vai cuidar do café enquanto o proprietário estiver ausente.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "She dropped by the cafe to pick up her morning coffee.",
+        "local": "cafe",
+        "resposta": "Ela passou no café para pegar o café da manhã dela.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They set out to explore new cafes in the city.",
+        "local": "cafe",
+        "resposta": "Eles saíram para explorar novos cafés na cidade.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "Do you have a savings account?",
+        "local": "bank",
+        "resposta": "Você tem uma conta poupança?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "How often do you visit the bank?",
+        "local": "bank",
+        "resposta": "Com que frequência você visita o banco?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "Would you like to apply for a loan?",
+        "local": "bank",
+        "resposta": "Você gostaria de solicitar um empréstimo?",
+        "nivel": 1,
+        "categoria": "Perguntas Específicas"
+    },
+    {
+        "pergunta": "She always saves a portion of her income.",
+        "local": "bank",
+        "resposta": "Ela sempre guarda uma parte de sua renda.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "He usually checks his balance online.",
+        "local": "bank",
+        "resposta": "Ele geralmente verifica seu saldo online.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "They rarely use the ATM for withdrawals.",
+        "local": "bank",
+        "resposta": "Eles raramente usam o caixa eletrônico para saques.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "The main branch is downtown.",
+        "local": "bank",
+        "resposta": "A agência principal fica no centro da cidade.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "She deposited her paycheck at the bank.",
+        "local": "bank",
+        "resposta": "Ela depositou seu salário no banco.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "He waited in line at the bank for over an hour.",
+        "local": "bank",
+        "resposta": "Ele esperou na fila do banco por mais de uma hora.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Lugar"
+    },
+    {
+        "pergunta": "She usually goes to the bank early in the morning.",
+        "local": "bank",
+        "resposta": "Ela geralmente vai ao banco de manhã cedo.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "They always withdraw cash on Fridays.",
+        "local": "bank",
+        "resposta": "Eles sempre sacam dinheiro às sextas-feiras.",
+        "nivel": 1,
+        "categoria": "Intensificadores e Quantificadores"
+    },
+    {
+        "pergunta": "She never forgets to pay her bills at the bank.",
+        "local": "bank",
+        "resposta": "Ela nunca se esquece de pagar suas contas no banco.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "He rarely uses online banking services.",
+        "local": "bank",
+        "resposta": "Ele raramente usa serviços bancários online.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "They often consult their financial advisor at the bank.",
+        "local": "bank",
+        "resposta": "Eles frequentemente consultam seu consultor financeiro no banco.",
+        "nivel": 1,
+        "categoria": "Advérbios de Frequência"
+    },
+    {
+        "pergunta": "She arrived at the bank just before it closed.",
+        "local": "bank",
+        "resposta": "Ela chegou ao banco pouco antes de fechar.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "He usually checks his account balance at the bank's ATM.",
+        "local": "bank",
+        "resposta": "Ele geralmente verifica o saldo de sua conta no caixa eletrônico do banco.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "They planned to visit the bank early in the morning.",
+        "local": "bank",
+        "resposta": "Eles planejaram visitar o banco logo de manhã.",
+        "nivel": 1,
+        "categoria": "Preposições comuns de Tempo"
+    },
+    {
+        "pergunta": "She dropped by the bank to discuss her mortgage.",
+        "local": "bank",
+        "resposta": "Ela passou no banco para discutir seu financiamento.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "He went to the bank to cash a check.",
+        "local": "bank",
+        "resposta": "Ele foi ao banco para descontar um cheque.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
+    },
+    {
+        "pergunta": "They set out to open a new account at the bank.",
+        "local": "bank",
+        "resposta": "Eles saíram para abrir uma nova conta no banco.",
+        "nivel": 1,
+        "categoria": "Verbos Frasais"
     }
 ]
