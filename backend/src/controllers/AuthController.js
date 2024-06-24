@@ -66,7 +66,7 @@ async function login(req, res) {
 }
 
 async function checkAuth(req, res) {
-    const idToken = req.headers.authorization ? req.headers.authorization.split('Bearer ')[1] : null;
+    const idToken = req.headers.authorization?.split(' ')[1];
 
     if (!idToken) {
         return res.status(401).send({ error: 'Token não fornecido' });
@@ -74,14 +74,14 @@ async function checkAuth(req, res) {
 
     try {
         const decodedToken = await admin.auth().verifyIdToken(idToken);
-        req.uid = decodedToken.uid;
-        next();
+        const uid = decodedToken.uid;
+
         // Lógica adicional? Verificar dados adicionais do usuário no Firestore?
 
     } catch (error) {
         res.status(401).send({ error: 'Não autenticado' });
     }
-};
+}
 
 module.exports = {
     signUp,

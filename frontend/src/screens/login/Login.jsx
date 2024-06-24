@@ -32,7 +32,6 @@ export default function Login({ navigation }) {
 
         try {
             const data = await login(email, password);
-            // Armazena o token e os dados do usuário no contexto e/ou AsyncStorage
             await AsyncStorage.setItem('userToken', data.token);
             await AsyncStorage.setItem('userData', JSON.stringify(data.userData));
             setUser({ token: data.token, userData: data.userData });

@@ -17,9 +17,9 @@ export const login = async (email, password) => {
     });
     console.log('Response:', response.data); // Pra verificar se a resposta do backend é recebida corretamente
 
-    return response.data;
+      return response.data;
   } catch (error) {
-    throw new Error(error.response?.data?.error || error.message);
+      throw new Error(error.response?.data?.error || error.message);
   }
 };
 
