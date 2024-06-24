@@ -8,64 +8,61 @@ admin.initializeApp({
 
 async function signUp(req, res) {
     const { email, password, username, isTeacher } = req.body;
-    
+
     try {
         const userCredential = await admin.auth().createUser({
             email: email,
             password: password,
             displayName: username
         });
-    
+
         const user = userCredential;
-    
+
         const userData = {
             email: user.email,
             nome: username,
         };
-    
+
         const collection = isTeacher ? 'professores' : 'alunos';
         await admin.firestore().collection(collection).doc(user.uid).set(userData);
-        
+
         res.status(201).send({ message: 'Usuário criado com sucesso!' });
     } catch (error) {
-        console.log(error);
         res.status(400).send({ error: error.message });
     }
 }
 
 async function login(req, res) {
-    const { email, password } = req.body;
+    const idToken = req.headers.authorization?.split(' ')[1];
+  console.log('Token JWT recebido:', idToken); // Verifica se o token é recebido corretamente
 
-    try {
-        // Autenticação com email e senha
-        const uid = req.uid;
-        const userCredential = await admin.auth().getUser(uid);
-        //const userCredential = await admin.auth().getUserByEmail(email);
-        console.log(userCredential.email);
-        const token = await admin.auth().createCustomToken(userCredential.uid);
+  if (!idToken) {
+    return res.status(401).send({ error: 'Token não fornecido' });
+  }
 
-        // Verifica em qual coleção o usuário está (professores ou alunos)
-        let userData;
-        const professorDoc = await admin.firestore().collection('professores').doc(userCredential.uid).get();
-        //const professorDoc = await admin.firestore().collection('professores').doc(userCredential.email).get();
-        console.log(professorDoc.data());
-        if (professorDoc.exists) {
-            userData = professorDoc.data();
-        } else {
-            const alunoDoc = await admin.firestore().collection('alunos').doc(userCredential.uid).get();
-            //const alunoDoc = await admin.firestore().collection('alunos').doc(userCredential.email).get();
-            if (alunoDoc.exists) {
-                userData = alunoDoc.data();
-                console.log(userData);
-            } else {
-                throw new Error('Usuário não encontrado em nenhuma coleção');
-            }
-        }
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(idToken);
+    const uid = decodedToken.uid;
+    console.log('Token JWT verificado:', uid); // Verifica se o token é verificado corretamente
 
-        res.status(200).send({ token, userData });
-    } catch (error) {
-        res.status(400).send({ error: error.message });
+    // Verifica em qual coleção o usuário está (professores ou alunos)
+    let userData;
+    const professorDoc = await admin.firestore().collection('professores').doc(uid).get();
+    if (professorDoc.exists) {
+      userData = professorDoc.data();
+    } else {
+      const alunoDoc = await admin.firestore().collection('alunos').doc(uid).get();
+      if (alunoDoc.exists) {
+        userData = alunoDoc.data();
+      } else {
+        throw new Error('Usuário não encontrado em nenhuma coleção');
+      }
     }
+
+    res.status(200).send({ token: idToken, userData });
+  } catch (error) {
+    res.status(400).send({ error: error.message });
+  }
 }
 
 async function checkAuth(req, res) {
@@ -84,7 +81,7 @@ async function checkAuth(req, res) {
     } catch (error) {
         res.status(401).send({ error: 'Não autenticado' });
     }
-}
+};
 
 module.exports = {
     signUp,

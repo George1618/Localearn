@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -8,9 +10,7 @@ import Signup from './src/screens/signup/Signup';
 import Home from './src/screens/home/Home';
 
 import strings from './src/assets/strings';
-import {StyleSheet,  View } from 'react-native';
-import colors from './src/assets/colors';
-import AuthContext from './src/contexts/auth';
+import AuthContext from './src/contexts/AuthContext';
 import styles from './src/assets/styles';
 
 const { routes } = strings;
@@ -18,11 +18,41 @@ const { routes } = strings;
 // Pilha de navegação para o App principal.
 const Stack = createNativeStackNavigator();
 
+interface User {
+  token: string;
+  userData: any;
+}
 
 function App(): React.JSX.Element {
-  const [user, setUser] = useState(null);
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState<User | null>(null);
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try {
+        const userToken = await AsyncStorage.getItem('userToken');
+        const userData = await AsyncStorage.getItem('userData');
+        if (userToken && userData) {
+          setUser({ token: userToken, userData: JSON.parse(userData) });
+        } else {
+          setUser(null);
+        }
+      } catch (error) {
+        if (error instanceof Error) {
+          console.error('Erro ao verificar autenticação:', error.message);
+        } else {
+          console.error('Erro desconhecido ao verificar autenticação:', error);
+        }
+        setUser(null);
+      } finally {
+        setInitializing(false);
+      }
+    };
 
-  return (
+    checkAuthentication();
+  }, []);
+  return initializing ? (
+    <ActivityIndicator size="large" style={styles.loadingIndicator} />
+  ) : (
     <View style={styles.body}>
       <AuthContext.Provider value={{user, setUser}}>
         <NavigationContainer>

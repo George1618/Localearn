@@ -1,7 +1,9 @@
 import { useContext, useState } from "react";
-import { Button, Pressable, Text, View } from "react-native";
+import { Pressable, View, ActivityIndicator, Alert } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import AuthContext from "../../contexts/auth";
+import AuthContext from "../../contexts/AuthContext";
+import { login } from "../../services/api";
 
 import LNI from "../../components/LabeledNameInput";
 import LPI from "../../components/LabeledPasswordInput";
@@ -14,18 +16,34 @@ import StyledText from "../../components/StyledText";
 const s = strings.login;
 
 export default function Login({ navigation }) {
+    const { setUser } = useContext(AuthContext);
 
-    // para autenticação com backend, usar apenas setUser
-    const {_, setUser} = useContext(AuthContext);
-
-    // para os campos de preenchimento
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    function login() {
-        // TODO: remover exemplo abaixo para puxar do Firebase
-        const user = {name: username, isTeacher: false}
-        setUser(user);
+    async function handleLogin() {
+        if (!email || !password) {
+            Alert.alert('Erro', 'Por favor, preencha o email e a senha.');
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const data = await login(email, password);
+            // Armazena o token e os dados do usuário no contexto e/ou AsyncStorage
+            await AsyncStorage.setItem('userToken', data.token);
+            await AsyncStorage.setItem('userData', JSON.stringify(data.userData));
+            setUser({ token: data.token, userData: data.userData });
+            console.log('Usuário logado com sucesso!');
+            navigation.navigate(strings.routes.home);
+        } catch (error) {
+            console.error('Erro ao fazer login:', error.message);
+            Alert.alert('Erro', error.message);
+        } finally {
+            setLoading(false);
+        }
     }
 
     function navToSignup() {
@@ -33,27 +51,34 @@ export default function Login({ navigation }) {
     }
 
     return (
-    <View style={styles.body}>
-        <StyledText text={strings.appName} style={styles.non_home_header} />
-        <LNI
-            label={s.labelUser}
-            value={username}
-            onEdit={setUsername} />
-        <LPI
-            label={s.labelPassword}
-            isNew={false}
-            value={password}
-            onEdit={setPassword} />
+        <View style={styles.body}>
+            <StyledText text={strings.appName} style={styles.non_home_header} />
+            <LNI
+                label={s.labelUser}
+                value={email}
+                onEdit={setEmail}
+            />
+            <LPI
+                label={s.labelPassword}
+                isNew={false}
+                value={password}
+                onEdit={setPassword}
+            />
         
-        <View style={styles.login_signup}>
-            <StyledText text={ s.textSignupLine+"   " } style={styles.login_signup_text} />
-            <Pressable onPress={navToSignup}>
-                <StyledText text={s.textSignup} style={styles.login_signup_link} />
-            </Pressable>
+            <View style={styles.login_signup}>
+                <StyledText text={s.textSignupLine + "   "} style={styles.login_signup_text} />
+                <Pressable onPress={navToSignup}>
+                    <StyledText text={s.textSignup} style={styles.login_signup_link} />
+                </Pressable>
+            </View>
+        
+            <ActionButton
+                text={s.buttonLogin}
+                action={handleLogin}
+                style={styles.submit_button}
+                textStyle={styles.submit_button_text}
+            />
+            {loading && <ActivityIndicator size="large" color="#0000ff" />}
         </View>
-        
-        <ActionButton text={s.buttonLogin} action={login} 
-            style={styles.submit_button} textStyle={styles.submit_button_text} />
-    </View>
     );
 }

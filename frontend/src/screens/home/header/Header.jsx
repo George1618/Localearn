@@ -2,7 +2,7 @@ import { Image, Pressable, StyleSheet, View } from "react-native";
 import StyledText from "../../../components/StyledText";
 import strings from "../../../assets/strings";
 import { useContext, useState } from "react";
-import AuthContext from "../../../contexts/auth";
+import AuthContext from "../../../contexts/AuthContext";
 import styles from "../../../assets/styles";
 
 const image_student = require('../../../assets/empty_profile_student.png');

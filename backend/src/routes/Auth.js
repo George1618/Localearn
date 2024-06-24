@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../controllers/AuthController.js');
 
 router.get("/teste", async (req, res) => {
-    res.send("Teste!");
+  res.send("Teste!");
 });
 
 router.post('/login', authController.login);
