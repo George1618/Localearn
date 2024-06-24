@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const admin = require('firebase-admin');
+var admin = require("firebase-admin");
 
-const serviceAccount = require('../services/serviceAccountKey.json');
+var serviceAccount = require("../services/serviceAccountKey.json");
+
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://localearn-687d1.firebaseio.com'
+  credential: admin.credential.cert(serviceAccount)
 });
+
 
 router.post('/login', async (req, res) => {
   const idToken = req.headers.authorization?.split(' ')[1];
