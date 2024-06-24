@@ -117,7 +117,27 @@ function selecionarPerguntaAleatoria(perguntas) {
     return perguntas[indiceAleatorio];
 }
 
+async function getLocais(req, res) {
+    try {
+        const alunosSnapshot = await db.collection('alunos').get();
+        const locais = [];
+        alunosSnapshot.forEach(doc => {
+            const alunoData = doc.data();
+            if (alunoData.local) {
+                locais.push(...alunoData.local);
+            }
+        });
+        res.status(200).send(locais);
+    } catch (error) {
+        res.status(500).send({
+            mensagem: "Erro ao buscar locais",
+            error: error.message
+        });
+    }
+}
+
 module.exports = {
     getExercicio,
-    updateLocalizacao
+    updateLocalizacao,
+    getLocais
 };

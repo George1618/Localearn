@@ -1,10 +1,4 @@
-const admin = require('firebase-admin');
-const serviceAccount = require('../services/serviceAccountKey.json');
-
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: 'https://localearn-687d1.firebaseio.com'
-});
+const db = require('../firebaseAdmin');
 
 async function signUp(req, res) {
     const { email, password, username, isTeacher } = req.body;
