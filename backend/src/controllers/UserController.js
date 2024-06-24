@@ -62,8 +62,34 @@ async function updateData(req, res) {
     }
 }
 
+async function updateLocal(req, res) {
+  const idToken = req.headers.authorization.split('Bearer ')[1];
+  const { local } = req.body;
+
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(idToken);
+
+    // Se não for professor, procura na coleção de alunos
+    userRef = admin.firestore().collection('alunos').doc(decodedToken.uid);
+    userSnapshot = await userRef.get();
+
+    if (!userSnapshot.exists) {
+      return res.status(404).send({ error: 'User not found' });
+    }
+
+    // Atualizar o campo local
+    await userRef.update({
+      local: local
+    });
+
+    res.status(200).send({ message: 'User data updated successfully' });
+  } catch (error) {
+    res.status(400).send({ error: error.message });
+  }
+}
 
 module.exports = {
     getData,
-    updateData
+    updateData,
+    updateLocal
 };

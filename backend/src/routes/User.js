@@ -8,5 +8,6 @@ router.get("/teste", async (req, res) => {
 
 router.get('/userData', userController.getData);
 router.put('/userData', userController.updateData);
+router.put('/updateLocal', userController.updateLocal);
 
 module.exports = router;

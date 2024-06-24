@@ -40,5 +40,11 @@
         "local": "school",
         "resposta": "Eu estou no quinto ano",
         "nivel": 1
+    },
+    {
+        "pergunta": "Can you spot me?",
+        "local": "gym",
+        "resposta": "Pode me asdasdasdadsad",
+        "nivel": 1
     }
 ]

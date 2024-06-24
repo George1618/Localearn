@@ -8,7 +8,8 @@ class Location {
     constructor() {}
 
     async getCurrentLocation() {
-        while (true) {
+        let counter = 0;
+        while (true && counter < 5) {
             try {
                 const data = await this.getCurrentLocationFromApi();
                 const coordenadas = [data.location.lat, data.location.lng];
@@ -18,7 +19,9 @@ class Location {
                 // Aguarda um curto período antes de tentar novamente para evitar um loop rápido
                 await new Promise(resolve => setTimeout(resolve, 2000));
             }
+            counter++;
         }
+        return false;
     }
 
     getCurrentLocationFromApi() {

@@ -18,16 +18,29 @@ async function signUp(req, res) {
 
         const user = userCredential;
 
-        const userData = {
-            email: user.email,
-            nome: username,
-        };
-
         const collection = isTeacher ? 'professores' : 'alunos';
+
+        let userData = {}
+
+        if (isTeacher) {
+            userData = {
+                email: email,
+                nome: username
+            };
+        } else {
+            userData = {
+                email: email,
+                nome: username,
+                local: "",
+                nível: 1
+            };
+        }
+
         await admin.firestore().collection(collection).doc(user.uid).set(userData);
 
         res.status(201).send({ message: 'Usuário criado com sucesso!' });
     } catch (error) {
+        console.log(error);
         res.status(400).send({ error: error.message });
     }
 }
