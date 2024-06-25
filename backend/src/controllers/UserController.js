@@ -124,13 +124,20 @@ async function getDesempenho(req, res) {
           ? (desempenho.advFreqAcerto / (desempenho.advFreqAcerto + desempenho.advFreqErro) * 100).toFixed(2) 
           : 0;
 
+          const totalAcertos = desempenho.IeQAcerto + desempenho.PCdLAcerto + desempenho.PCdTAcerto + desempenho.PergEspecAcerto + desempenho.VerbFrasaisAcerto + desempenho.advFreqAcerto;
+          const totalErros = desempenho.IeQErro + desempenho.PCdLErro + desempenho.PCdTErro + desempenho.PergEspecErro + desempenho.VerbFrasaisErro + desempenho.advFreqErro;
+          const totalPer = totalAcertos + totalErros > 0 
+              ? (totalAcertos / (totalAcertos + totalErros) * 100).toFixed(2) 
+              : 0;
+
       return res.status(200).send({ 
           Verbos_Frasais: VerbFrasaisPer,
           Preposições_comuns_de_Tempo: PCdTPer,
           Preposições_comuns_de_Lugar: PCdLPer,
           Advérbios_de_Frequência: advFreqPer,
           Intensificadores_e_Quantificadores: IeQPer,
-          Perguntas_Específicas: PergEspecPer
+          Perguntas_Específicas: PergEspecPer,
+          Total: totalPer
       });
   } catch (error) {
       res.status(400).send({ error: error.message });
