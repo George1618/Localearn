@@ -8,18 +8,18 @@ const API_URL_LOCALEARN = 'http://localhost:3000/localearn';
 
 export const login = async (email, password) => {
   try {
-      const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
-      const token = await userCredential.user.getIdToken();
-      console.log('Token JWT:', token);
+    const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+    const token = await userCredential.user.getIdToken();
+    console.log('Token JWT:', token);
 
-      const response = await axios.post(`${API_URL_AUTH}/login`, {}, {
-          headers: { Authorization: `Bearer ${token}` }
-      });
-      console.log('Response:', response.data);
+    const response = await axios.post(`${API_URL_AUTH}/login`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+    });
+    console.log('Response:', response.data);
 
-      return response.data;
+    return response.data;
   } catch (error) {
-      throw new Error(error.response?.data?.error || error.message);
+    throw new Error(error.response?.data?.error || error.message);
   }
 };
 
@@ -77,6 +77,17 @@ export const getExercicio = async () => {
 export const getLocais = async () => {
   try {
     const response = await axios.get(`${API_URL_LOCALEARN}/locais`);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.error || error.message);
+  }
+};
+
+export const getRecentLocations = async (token) => {
+  try {
+    const response = await axios.get(`${API_URL_USER}/recentLocations`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);

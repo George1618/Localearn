@@ -9,5 +9,6 @@ router.get("/teste", async (req, res) => {
 router.get('/userData', userController.getData);
 router.put('/userData', userController.updateData);
 router.put('/updateLocal', userController.updateLocal);
+router.get('/recentLocations', userController.getRecentLocations);
 
 module.exports = router;
