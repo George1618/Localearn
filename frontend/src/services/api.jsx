@@ -82,3 +82,17 @@ export const getLocais = async () => {
     throw new Error(error.response?.data?.error || error.message);
   }
 };
+
+export const sendAnswersResult = async (token, correctAnswers, wrongAnswers) => {
+  try {
+    const response = await axios.post(`${API_URL_LOCALEARN}/answersResult`, {
+      correctAnswers,
+      wrongAnswers
+    }, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.error || error.message);
+  }
+};
