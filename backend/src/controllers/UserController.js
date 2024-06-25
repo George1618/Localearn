@@ -88,6 +88,28 @@ async function updateLocal(req, res) {
   }
 }
 
+async function getRecentLocations(req, res) {
+  const idToken = req.headers.authorization.split('Bearer ')[1];
+
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(idToken);
+    const userRef = admin.firestore().collection('alunos').doc(decodedToken.uid);
+    const userSnapshot = await userRef.get();
+
+    if (!userSnapshot.exists) {
+      return res.status(404).send({ error: 'User not found' });
+    }
+
+    const userData = userSnapshot.data();
+    const locais = userData.Local || [];
+    const recentLocais = locais.slice(-3);
+
+    res.status(200).send(recentLocais);
+  } catch (error) {
+    res.status(400).send({ error: error.message });
+  }
+}
+
 async function getDesempenho(req, res) {
   const idToken = req.headers.authorization.split('Bearer ')[1];
 
@@ -224,9 +246,10 @@ async function updateDesempenho(req, res) {
 }
 
 module.exports = {
-    getData,
-    updateData,
-    updateLocal,
-    getDesempenho,
-    updateDesempenho
+  getData,
+  updateData,
+  updateLocal,
+  getDesempenho,
+  updateDesempenho,
+  getRecentLocations
 };

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import LocationCard from "../../../components/LocationCard";
-import { getLocais } from '../../../services/api';
+import { getRecentLocations } from '../../../services/api';
+import firebase from '../../../services/firebaseConfig';
 
 import strings from "../../../assets/strings";
 import StyledText from "../../../components/StyledText";
@@ -16,8 +17,12 @@ export default function Locations({ navigation }) {
     useEffect(() => {
         const fetchLocais = async () => {
             try {
-                const locais = await getLocais();
-                setLocations(locais);
+                const user = firebase.auth().currentUser;
+                if (user) {
+                    const token = await user.getIdToken();
+                    const locais = await getRecentLocations(token);
+                    setLocations(locais);
+                }
             } catch (error) {
                 console.error("Failed to fetch locations:", error);
             }
