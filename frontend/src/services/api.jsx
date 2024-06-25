@@ -108,3 +108,12 @@ export const updateDesempenho = async (categoria, acerto) => {
     throw new Error(error.response?.data?.error || error.message);
   }
 };
+
+export const updateLocalizacao = async (location) => {
+  try {
+    const response = await axiosInstance.post('/localizacao', { latitude: location.latitude, longitude: location.longitude });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.error || error.message);
+  }
+};

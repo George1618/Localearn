@@ -10,7 +10,8 @@ import Signup from './src/screens/signup/Signup';
 import Home from './src/screens/home/Home';
 
 import strings from './src/assets/strings';
-import AuthContext from './src/contexts/AuthContext';
+import AuthContext, { AuthProvider } from './src/contexts/AuthContext';
+import { LocalProvider } from './src/contexts/LocalContext';
 import styles from './src/assets/styles';
 
 const { routes } = strings;
@@ -56,25 +57,27 @@ function App(): React.JSX.Element {
     <ActivityIndicator size="large" style={styles.loadingIndicator} />
   ) : (
     <View style={styles.body}>
-      <AuthContext.Provider value={{ user, setUser }}>
-        <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{
-              header: () => null,
-              headerShown: false,
-              contentStyle: styles.app_content,
-            }}>
-            {user === null ? (
-              <>
-                <Stack.Screen name={routes.login} component={Login} />
-                <Stack.Screen name={routes.signup} component={Signup} />
-              </>
-            ) : (
-              <Stack.Screen name={routes.home} component={Home} />
-            )}
-          </Stack.Navigator>
-        </NavigationContainer>
-      </AuthContext.Provider>
+      <AuthProvider>
+        <LocalProvider>
+          <NavigationContainer>
+            <Stack.Navigator
+              screenOptions={{
+                header: () => null,
+                headerShown: false,
+                contentStyle: styles.app_content,
+              }}>
+              {user === null ? (
+                <>
+                  <Stack.Screen name={routes.login} component={Login} />
+                  <Stack.Screen name={routes.signup} component={Signup} />
+                </>
+              ) : (
+                <Stack.Screen name={routes.home} component={Home} />
+              )}
+            </Stack.Navigator>
+          </NavigationContainer>
+        </LocalProvider>
+      </AuthProvider>
     </View>
   );
 }
