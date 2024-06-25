@@ -1,6 +1,5 @@
 import axios from 'axios';
-import firebase from './firebaseConfig';
-import 'firebase/auth';
+import { auth } from '../services/firebaseConfig';
 
 const API_URL_AUTH = 'http://localhost:3000/auth';
 const API_URL_USER = 'http://localhost:3000/user';
@@ -8,7 +7,7 @@ const API_URL_LOCALEARN = 'http://localhost:3000/localearn';
 
 export const login = async (email, password) => {
   try {
-    const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+    const userCredential = await auth.signInWithEmailAndPassword(email, password);
     const token = await userCredential.user.getIdToken();
     console.log('Token JWT:', token);
 
