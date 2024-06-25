@@ -14,6 +14,21 @@ async function signUp(req, res) {
 
         const collection = isTeacher ? 'professores' : 'alunos';
 
+        const collectionData = {
+            advFreqAcerto: 0,
+            advFreqErro: 0,
+            IeQAcerto: 0,
+            IeQErro: 0,
+            PergEspecAcerto: 0,
+            PergEspecErro: 0,
+            PCdTAcerto: 0,
+            PCdTErro: 0,
+            PCdLAcerto: 0,
+            PCdLErro: 0,
+            VerbFrasaisAcerto: 0,
+            VerbFrasaisErro: 0
+        }
+
         let userData = {}
 
         if (isTeacher) {
@@ -26,7 +41,8 @@ async function signUp(req, res) {
                 email: email,
                 nome: username,
                 local: "",
-                nível: 1
+                nível: 1,
+                desempenho: collectionData
             };
         }
 
