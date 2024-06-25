@@ -109,3 +109,17 @@ export const sendAnswersResult = async (token, correctAnswers, wrongAnswers) => 
     throw new Error(error.response?.data?.error || error.message);
   }
 };
+
+export const updateDesempenho = async (token, categoria, acerto) => {
+  try {
+    const response = await axios.post(`${API_URL_USER}/updateDesempenho`, {
+      categoria,
+      acerto
+    }, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.error || error.message);
+  }
+};

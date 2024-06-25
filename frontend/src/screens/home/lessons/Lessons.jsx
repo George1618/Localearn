@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, ActivityIndicator } from "react-native";
 
 import LessonCard from "../../../components/LessonCard";
-import { getExercicio, sendAnswersResult } from '../../../services/api';
+import { getExercicio, updateDesempenho } from '../../../services/api';
 
 import strings from "../../../assets/strings";
 import StyledText from "../../../components/StyledText";
@@ -24,7 +24,8 @@ export default function Lessons() {
                 id: response.id,
                 number: lessonCount + 1,
                 question: response.pergunta,
-                answer: response.resposta
+                answer: response.resposta,
+                category: response.categoria // Adicionando a categoria
             });
             setDate(new Date());
         } catch (error) {
@@ -37,7 +38,9 @@ export default function Lessons() {
     }, [lessonCount]);
 
     async function submitAnswer(userAnswer) {
-        if (userAnswer === lesson.answer) {
+        const acerto = userAnswer === lesson.answer;
+        
+        if (acerto) {
             setCorrectAnswers(correctAnswers + 1);
         } else {
             setWrongAnswers(wrongAnswers + 1);
@@ -45,9 +48,9 @@ export default function Lessons() {
 
         try {
             const token = await firebase.auth().currentUser.getIdToken();
-            await sendAnswersResult(token, correctAnswers, wrongAnswers);
+            await updateDesempenho(token, lesson.category, acerto); // Chamar updateDesempenho
         } catch (error) {
-            console.error("Failed to send answers result:", error);
+            console.error("Failed to update desempenho:", error);
         }
 
         setLessonCount(lessonCount + 1);
