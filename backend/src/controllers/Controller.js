@@ -30,6 +30,8 @@ async function getExercicio(req, res) {
             });
             local = reqLocal.data.userData.local;
             nivel = reqLocal.data.userData.nível;
+            console.log(local);
+            console.log(nivel);
         }
         const perguntas = await carregarPerguntas();
         let perguntasFiltradas = perguntas.filter(pergunta => pergunta.local === local);
