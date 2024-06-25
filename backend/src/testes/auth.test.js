@@ -220,3 +220,44 @@ describe("Teste da rota GET - /getExercicio", () => {
     })
 })*/
 
+
+
+describe("Teste da rota GET - /userData", () => {
+    describe("Casos válidos", () => {
+        it("CT006 - Field Test - Usuário válido", async () => {
+            const email = "testecomcategoria@gmail.com";
+            const password = "teste123";
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const token = await userCredential.user.getIdToken();
+
+            const response = await request(app)
+             .get("/user/desempenho")
+             .set("Authorization", `Bearer ${token}`);
+
+            expect(response.status).toBe(200);
+        }) 
+    })
+})
+
+describe("Teste da rota PUT - /userData", () => {
+    describe("Casos válidos", () => {
+        it("CT006 - Field Test - Usuário válido", async () => {
+            const email = "testecomcategoria@gmail.com";
+            const password = "teste123";
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const token = await userCredential.user.getIdToken();
+
+            const response = await request(app)
+             .put("/user/desempenho")
+             .set("Authorization", `Bearer ${token}`)
+             .send({
+                categoria: "Verbos Frasais",
+                acerto: true
+             });
+
+            expect(response.status).toBe(200);
+            expect(response.body).toHaveProperty("message");
+            expect(response.body.message).toEqual("User data updated successfully");
+        }) 
+    })
+})
