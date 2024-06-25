@@ -1,9 +1,17 @@
 import axios from 'axios';
 import { auth } from '../services/firebaseConfig';
 
-const API_URL_AUTH = 'http://localhost:3000/auth';
-const API_URL_USER = 'http://localhost:3000/user';
-const API_URL_LOCALEARN = 'http://localhost:3000/localearn';
+const axiosInstance = axios.create({
+  baseURL: 'http://localhost:3000',
+});
+
+axiosInstance.interceptors.request.use(async (config) => {
+  const token = await auth.currentUser?.getIdToken();
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+}, (error) => Promise.reject(error));
 
 export const login = async (email, password) => {
   try {
@@ -11,9 +19,7 @@ export const login = async (email, password) => {
     const token = await userCredential.user.getIdToken();
     console.log('Token JWT:', token);
 
-    const response = await axios.post(`${API_URL_AUTH}/login`, {}, {
-        headers: { Authorization: `Bearer ${token}` }
-    });
+    const response = await axiosInstance.post('/auth/login');
     console.log('Response:', response.data);
 
     return response.data;
@@ -24,40 +30,34 @@ export const login = async (email, password) => {
 
 export const signup = async (email, password, username, isTeacher) => {
   try {
-    const response = await axios.post(`${API_URL_AUTH}/signup`, { email, password, username, isTeacher });
+    const response = await axiosInstance.post('/auth/signup', { email, password, username, isTeacher });
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);
   }
 };
 
-export const checkAuth = async (token) => {
+export const checkAuth = async () => {
   try {
-    const response = await axios.get(`${API_URL_AUTH}/checkAuth`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    const response = await axiosInstance.get('/auth/checkAuth');
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);
   }
 };
 
-export const getUserData = async (token) => {
+export const getUserData = async () => {
   try {
-    const response = await axios.get(`${API_URL_USER}/userData`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    const response = await axiosInstance.get('/user/userData');
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);
   }
 };
 
-export const updateUserData = async (token, userData) => {
+export const updateUserData = async (userData) => {
   try {
-    const response = await axios.put(`${API_URL_USER}/userData`, userData, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    const response = await axiosInstance.put('/user/userData', userData);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);
@@ -66,57 +66,43 @@ export const updateUserData = async (token, userData) => {
 
 export const getExercicio = async () => {
   try {
-    const response = await axios.get(`${API_URL_LOCALEARN}/exercicio`);
+    const response = await axiosInstance.get('/localearn/exercicio');
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);
   }
 };
 
-export const getRecentLocations = async (token) => {
+export const getRecentLocations = async () => {
   try {
-    const response = await axios.get(`${API_URL_USER}/recentLocations`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    const response = await axiosInstance.get('/user/recentLocations');
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);
   }
 };
 
-export const getDesempenho = async (token) => {
+export const getDesempenho = async () => {
   try {
-    const response = await axios.get(`${API_URL_USER}/desempenho`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    const response = await axiosInstance.get('/user/desempenho');
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);
   }
 };
 
-export const sendAnswersResult = async (token, correctAnswers, wrongAnswers) => {
+export const sendAnswersResult = async (correctAnswers, wrongAnswers) => {
   try {
-    const response = await axios.post(`${API_URL_LOCALEARN}/answersResult`, {
-      correctAnswers,
-      wrongAnswers
-    }, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    const response = await axiosInstance.post('/localearn/answersResult', { correctAnswers, wrongAnswers });
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);
   }
 };
 
-export const updateDesempenho = async (token, categoria, acerto) => {
+export const updateDesempenho = async (categoria, acerto) => {
   try {
-    const response = await axios.post(`${API_URL_USER}/updateDesempenho`, {
-      categoria,
-      acerto
-    }, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    const response = await axiosInstance.post('/user/updateDesempenho', { categoria, acerto });
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || error.message);
