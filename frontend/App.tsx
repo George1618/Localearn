@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Login from './src/screens/login/Login';
 import Signup from './src/screens/signup/Signup';
@@ -26,6 +26,7 @@ interface User {
 function App(): React.JSX.Element {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState<User | null>(null);
+
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
@@ -50,24 +51,27 @@ function App(): React.JSX.Element {
 
     checkAuthentication();
   }, []);
+
   return initializing ? (
     <ActivityIndicator size="large" style={styles.loadingIndicator} />
   ) : (
     <View style={styles.body}>
-      <AuthContext.Provider value={{user, setUser}}>
+      <AuthContext.Provider value={{ user, setUser }}>
         <NavigationContainer>
-          <Stack.Navigator 
-            screenOptions={{header: () => null, headerShown: false,
-              contentStyle: styles.app_content
+          <Stack.Navigator
+            screenOptions={{
+              header: () => null,
+              headerShown: false,
+              contentStyle: styles.app_content,
             }}>
-              {
-                user===null ? 
-                <>
-                  <Stack.Screen name={routes.login} component={Login} />
-                  <Stack.Screen name={routes.signup} component={Signup} />
-                </>
-                  :
-                <Stack.Screen name={routes.home} component={Home} />}
+            {user === null ? (
+              <>
+                <Stack.Screen name={routes.login} component={Login} />
+                <Stack.Screen name={routes.signup} component={Signup} />
+              </>
+            ) : (
+              <Stack.Screen name={routes.home} component={Home} />
+            )}
           </Stack.Navigator>
         </NavigationContainer>
       </AuthContext.Provider>

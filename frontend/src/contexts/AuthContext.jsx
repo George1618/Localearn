@@ -11,28 +11,38 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const loadUserData = async () => {
-      const userToken = await AsyncStorage.getItem('userToken');
-      const userData = await AsyncStorage.getItem('userData');
-      if (userToken && userData) {
-        setUser({ token: userToken, userData: JSON.parse(userData) });
+      try {
+        const userToken = await AsyncStorage.getItem('userToken');
+        const userData = await AsyncStorage.getItem('userData');
+        if (userToken && userData) {
+          setUser({ token: userToken, userData: JSON.parse(userData) });
+        }
+      } catch (error) {
+        console.error('Erro ao carregar dados do usuário:', error);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
 
     loadUserData();
 
     const unsubscribe = auth.onAuthStateChanged(async user => {
       if (user) {
-        const userToken = await user.getIdToken();
-        const userData = await AsyncStorage.getItem('userData');
-        setUser({ token: userToken, userData: JSON.parse(userData) });
+        try {
+          const userToken = await user.getIdToken();
+          const userData = await AsyncStorage.getItem('userData');
+          setUser({ token: userToken, userData: JSON.parse(userData) });
+        } catch (error) {
+          console.error('Erro ao obter token de usuário:', error);
+        }
       } else {
         setUser(null);
       }
       setLoading(false);
     });
 
-    return unsubscribe;
+    // Cleanup function to unsubscribe from onAuthStateChanged listener
+    return () => unsubscribe();
   }, []);
 
   return (
