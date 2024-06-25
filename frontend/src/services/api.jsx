@@ -85,6 +85,17 @@ export const getRecentLocations = async (token) => {
   }
 };
 
+export const getDesempenho = async (token) => {
+  try {
+    const response = await axios.get(`${API_URL_USER}/desempenho`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.error || error.message);
+  }
+};
+
 export const sendAnswersResult = async (token, correctAnswers, wrongAnswers) => {
   try {
     const response = await axios.post(`${API_URL_LOCALEARN}/answersResult`, {
