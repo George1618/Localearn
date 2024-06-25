@@ -74,15 +74,6 @@ export const getExercicio = async () => {
   }
 };
 
-export const getLocais = async () => {
-  try {
-    const response = await axios.get(`${API_URL_LOCALEARN}/locais`);
-    return response.data;
-  } catch (error) {
-    throw new Error(error.response?.data?.error || error.message);
-  }
-};
-
 export const getRecentLocations = async (token) => {
   try {
     const response = await axios.get(`${API_URL_USER}/recentLocations`, {
